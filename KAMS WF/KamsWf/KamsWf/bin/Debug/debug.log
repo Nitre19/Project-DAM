@@ -1,0 +1,4 @@
+[0502/085015.771:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Google\Chrome\reports: Acceso denegado. (0x5)
+[0502/085016.708:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Google\Chrome\reports: Acceso denegado. (0x5)
+[0502/085016.753:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0502/085017.487:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
