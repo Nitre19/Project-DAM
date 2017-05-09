@@ -2,3 +2,11 @@
 [0502/085016.708:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Google\Chrome\reports: Acceso denegado. (0x5)
 [0502/085016.753:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
 [0502/085017.487:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
+[0507/190927.610:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0507/190928.107:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0507/190928.125:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0507/190929.427:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
+[0507/205459.244:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0507/205500.143:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0507/205500.374:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0507/205500.733:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled

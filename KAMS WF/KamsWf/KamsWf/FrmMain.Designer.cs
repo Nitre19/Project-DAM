@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.holaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ActivarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desactivarKAMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.gestionarModulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.acercaDeKAMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,13 +52,13 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "KAMS";
             this.notifyIcon1.Visible = true;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.holaToolStripMenuItem,
+            this.ActivarToolStripMenuItem,
             this.desactivarKAMSToolStripMenuItem,
             this.toolStripSeparator1,
             this.gestionarModulosToolStripMenuItem,
@@ -66,19 +68,19 @@
             this.toolStripSeparator3,
             this.salirToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 176);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 154);
             // 
-            // holaToolStripMenuItem
+            // ActivarToolStripMenuItem
             // 
-            this.holaToolStripMenuItem.Name = "holaToolStripMenuItem";
-            this.holaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.holaToolStripMenuItem.Text = "Activar KAMS";
-            this.holaToolStripMenuItem.Click += new System.EventHandler(this.holaToolStripMenuItem_Click);
+            this.ActivarToolStripMenuItem.Checked = true;
+            this.ActivarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ActivarToolStripMenuItem.Name = "ActivarToolStripMenuItem";
+            this.ActivarToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.ActivarToolStripMenuItem.Text = "Activar KAMS";
+            this.ActivarToolStripMenuItem.Click += new System.EventHandler(this.holaToolStripMenuItem_Click);
             // 
             // desactivarKAMSToolStripMenuItem
             // 
-            this.desactivarKAMSToolStripMenuItem.Checked = true;
-            this.desactivarKAMSToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.desactivarKAMSToolStripMenuItem.Name = "desactivarKAMSToolStripMenuItem";
             this.desactivarKAMSToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.desactivarKAMSToolStripMenuItem.Text = "Desactivar KAMS";
@@ -91,9 +93,26 @@
             // 
             // gestionarModulosToolStripMenuItem
             // 
+            this.gestionarModulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.descargarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
             this.gestionarModulosToolStripMenuItem.Name = "gestionarModulosToolStripMenuItem";
             this.gestionarModulosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.gestionarModulosToolStripMenuItem.Text = "Gestionar modulos";
+            // 
+            // descargarToolStripMenuItem
+            // 
+            this.descargarToolStripMenuItem.Name = "descargarToolStripMenuItem";
+            this.descargarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.descargarToolStripMenuItem.Text = "Descargar";
+            this.descargarToolStripMenuItem.Click += new System.EventHandler(this.descargarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // configuraciónToolStripMenuItem
             // 
@@ -132,7 +151,7 @@
             // 
             // tmDesplegable
             // 
-            this.tmDesplegable.Interval = 50;
+            this.tmDesplegable.Interval = 1000;
             // 
             // FrmMain
             // 
@@ -140,8 +159,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 61);
             this.ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(99999, 200);
+            this.MaximumSize = new System.Drawing.Size(99999, 300);
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "FrmMain";
             this.ShowInTaskbar = false;
@@ -157,7 +177,7 @@
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem holaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ActivarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desactivarKAMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem gestionarModulosToolStripMenuItem;
@@ -168,6 +188,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Timer tmSimulaPosMouse;
         private System.Windows.Forms.Timer tmDesplegable;
+        private System.Windows.Forms.ToolStripMenuItem descargarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
 

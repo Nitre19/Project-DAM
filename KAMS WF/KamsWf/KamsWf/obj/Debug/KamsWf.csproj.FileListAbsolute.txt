@@ -7,3 +7,13 @@ C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\KAMS WF\KamsWf\KamsWf\obj\Deb
 C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
 C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.pdb
 C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmMain.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.exe.config
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.pdb
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.exe
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.pdb
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csprojResolveAssemblyReference.cache
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmConfig.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmMain.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.Properties.Resources.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csproj.GenerateResource.Cache
