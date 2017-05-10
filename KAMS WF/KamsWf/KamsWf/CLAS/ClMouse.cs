@@ -44,6 +44,51 @@ namespace KamsWf.CLAS
         {
             return SystemInformation.MouseSpeed.ToString();
         }
+
+        //Boton izquierdo del mouse apretado
+        public static void MouseLeftDown()
+        {
+            mouse_event(MouseEventFlag.LeftDown, 0, 0, 0, UIntPtr.Zero);
+        }
+        //Boton izquierdo del mouse soltado
+        public static void MouseLeftUp()
+        {
+            mouse_event(MouseEventFlag.LeftUp, 0, 0, 0, UIntPtr.Zero);
+        }
+
+        //Hacer click
+        public static void DoMouseClick()
+        {
+            mouse_event(MouseEventFlag.LeftDown | MouseEventFlag.LeftUp, 0, 0, 0, UIntPtr.Zero);
+        }
+        //Boton derecho del mouse apretado
+        public static void MouseRightDown()
+        {
+            mouse_event(MouseEventFlag.RightDown, 0, 0, 0, UIntPtr.Zero);
+        }
+        //Boton derecho del mouse soltado
+        public static void MouseRightUp()
+        {
+            mouse_event(MouseEventFlag.RightUp, 0, 0, 0, UIntPtr.Zero);
+        }
+        [DllImport("user32.dll")]
+        static extern void mouse_event(MouseEventFlag flags, int dx, int dy, uint data, UIntPtr extraInfo);
+        [Flags]
+        enum MouseEventFlag : uint
+        {
+            Move = 0x0001,
+            LeftDown = 0x0002,
+            LeftUp = 0x0004,
+            RightDown = 0x0008,
+            RightUp = 0x0010,
+            MiddleDown = 0x0020,
+            MiddleUp = 0x0040,
+            XDown = 0x0080,
+            XUp = 0x0100,
+            Wheel = 0x0800,
+            VirtualDesk = 0x4000,
+            Absolute = 0x8000
+        }
         /* Cambiem els controls del mouse
         [DllImport("user32.dll")]
         public static extern bool SwapMouseButton(bool cambi);
@@ -54,9 +99,10 @@ namespace KamsWf.CLAS
         public static extern bool SetDoubleClickTime(int miliseconds);
         */
 
-        // mirem si una determinada tecla s'ha premut
+        /* mirem si una determinada tecla s'ha premut
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int tecla);
+        */
 
         /* obtenir la tecla premuda
         public static char quinaTeclaPremuda()          // si no posem static no serà accessible des de fora de la classe
