@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace WindowsFormsApplication1.CLASES
+namespace KamsWf.CLAS
 {
     class ClModelUser
     {
