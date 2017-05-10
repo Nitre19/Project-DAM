@@ -8,11 +8,11 @@
         mc:Ignorable="d"
         Title="KAMS Paint" Height="447.5" Width="742.5" Loaded="windowMain_Loaded" Activated="windowMain_Activated" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
-        <ImageBrush x:Key="Pencil" ImageSource="C:\Users\Akrakorn\Desktop\M13\WpfApplication1/pencil.png" />
-        <ImageBrush x:Key="Cross" ImageSource="C:\Users\Akrakorn\Desktop\M13\WpfApplication1/cross.png" />
-        <ImageBrush x:Key="Clear" ImageSource="C:\Users\Akrakorn\Desktop\M13\WpfApplication1/clear.png" />
-        <ImageBrush x:Key="Eraser" ImageSource="C:\Users\Akrakorn\Desktop\M13\WpfApplication1/eraser.png" />
-        <ImageBrush x:Key="Disk" ImageSource="C:\Users\Akrakorn\Desktop\M13\WpfApplication1/disk.png" />
+        <ImageBrush x:Key="Pencil" ImageSource="images/pencil.png"/>
+        <ImageBrush x:Key="Cross" ImageSource="images/cross.png" />
+        <ImageBrush x:Key="Clear" ImageSource="images/clear.png" />
+        <ImageBrush x:Key="Eraser" ImageSource="images/eraser.png" />
+        <ImageBrush x:Key="Disk" ImageSource="images/disk.png" />
         <LinearGradientBrush x:Key="ButtonGradientBrush" 
                 StartPoint="0,0" EndPoint="0,1" >
             <GradientStopCollection>
@@ -36,7 +36,7 @@
         </Style>
     </Window.Resources>
     <Grid x:Name="gridMain" Background="#FFBDFFE1">
-        <InkCanvas x:Name="inkCanvasMain" HorizontalAlignment="Left" Height="260" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
+        <InkCanvas x:Name="inkCanvasMain" HorizontalAlignment="Left" Height="260" Margin="10,10,0,0" VerticalAlignment="Top" Width="497" EditingModeInverted="EraseByPoint">
             <InkCanvas.DefaultDrawingAttributes>
                 <DrawingAttributes Height="10" Width="10"/>
             </InkCanvas.DefaultDrawingAttributes>
