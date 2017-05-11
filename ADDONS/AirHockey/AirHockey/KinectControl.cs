@@ -218,6 +218,7 @@ namespace AirHockey
 
                         alreadyTrackedPos = true;
                         
+                        // asd
                         if (body == bodies[0]) player1.Margin = new Thickness(handRight.X, handRight.Y, 0, 0);
                         if (body == bodies[1]) player2.Margin = new Thickness(handRight.X, handRight.Y, 0, 0);
 
