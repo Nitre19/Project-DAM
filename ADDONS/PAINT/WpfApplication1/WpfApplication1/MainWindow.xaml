@@ -1,0 +1,179 @@
+﻿<Window x:Name="windowMain" x:Class="WpfApplication1.MainWindow"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="KAMS Paint" Height="447.5" Width="742.5" Loaded="windowMain_Loaded" Activated="windowMain_Activated" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Resources>
+        <ImageBrush x:Key="Pencil" ImageSource="images/pencil.png"/>
+        <ImageBrush x:Key="Cross" ImageSource="images/cross.png" />
+        <ImageBrush x:Key="Clear" ImageSource="images/clear.png" />
+        <ImageBrush x:Key="Eraser" ImageSource="images/eraser.png" />
+        <ImageBrush x:Key="Disk" ImageSource="images/disk.png" />
+        <LinearGradientBrush x:Key="ButtonGradientBrush" 
+                StartPoint="0,0" EndPoint="0,1" >
+            <GradientStopCollection>
+                <GradientStop Offset="0.0" Color="#3B78C8"/>
+                <GradientStop Offset="1.0" Color="#2C6199"/>
+            </GradientStopCollection>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ButtonBorderBrush" Color="#3B78C8"/>
+        <Style x:Key="FrameSelectorButtonStyle" TargetType="Button">
+            <Setter Property="Background" 
+                Value="{StaticResource ButtonGradientBrush}"/>
+            <Setter Property="BorderBrush" 
+                Value="{StaticResource ButtonBorderBrush}"/>
+
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="12,4,12,4"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Margin" Value="6"/>
+
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="gridMain" Background="#FFBDFFE1">
+        <InkCanvas x:Name="inkCanvasMain" HorizontalAlignment="Left" Height="260" Margin="10,10,0,0" VerticalAlignment="Top" Width="497" EditingModeInverted="EraseByPoint">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes Height="10" Width="10"/>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
+        <Border x:Name="borderInkCanvas"  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="10,10,0,0" Height="221" Width="382">
+        </Border>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btSave" HorizontalAlignment="Left" Margin="130,289,0,0" VerticalAlignment="Top" Click="btSave_Click" Foreground="#FFBDFFFF" FontWeight="Bold">
+            <Button.Content>
+                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="60" Margin="0">
+                    <TextBlock.Background>
+                        <StaticResource ResourceKey="Disk"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btClose" HorizontalAlignment="Left" Margin="244,289,0,0" VerticalAlignment="Top" Click="btClose_Click" Foreground="#FFBDFFFF" FontWeight="Bold">
+            <Button.Content>
+                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="90" Height="60" Margin="0">
+                    <TextBlock.Background>
+                        <StaticResource ResourceKey="Cross"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btClear"  HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Click="btClear_Click" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Foreground="#FFBDFFFF" FontWeight="Bold">
+            <Button.Content>
+                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="60" Margin="0">
+                    <TextBlock.Background>
+                        <StaticResource ResourceKey="Clear"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btDecreaseSize" Content="-" HorizontalAlignment="Left" Margin="364,289,0,0" VerticalAlignment="Top" Click="btDecreaseSize_Click" Foreground="Black" FontWeight="ExtraBlack" FontSize="50" VerticalContentAlignment="Center"/>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btTamany" HorizontalAlignment="Left" Margin="471,289,0,0" VerticalAlignment="Top" Click="btSize2_Click" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="25" MouseEnter="btTamany_MouseEnter" MouseLeave="btTamany_MouseLeave">
+            <Button.Content>
+                <Ellipse x:Name="ellTamany" Fill="Black" HorizontalAlignment="Left" Height="10" Width="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btIncreaseSize" Content="+" HorizontalAlignment="Left" Margin="591,289,0,0" VerticalAlignment="Top" Click="btIncreaseSize_Click" Foreground="Black" FontWeight="ExtraBlack" FontSize="50" VerticalContentAlignment="Center"/>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btDraw"  HorizontalAlignment="Left" Margin="364,369,0,0" VerticalAlignment="Top" Click="btDraw_Click" Foreground="#FFBDFFFF" FontWeight="Bold">
+            <Button.Content>
+                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="60" Margin="0">
+                    <TextBlock.Background>
+                        <StaticResource ResourceKey="Pencil"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btColorPicker" BorderBrush="Black" HorizontalAlignment="Left" Margin="16,369,0,-32" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" Width="234" Background="Black" MouseEnter="btColorPicker_MouseEnter" MouseLeave="btColorPicker_MouseLeave"/>
+        <Button Style="{StaticResource FrameSelectorButtonStyle}" x:Name="btErase" HorizontalAlignment="Left" Margin="244,369,0,0" VerticalAlignment="Top" Click="btErase_Click" Foreground="#FFBDFFFF" FontWeight="Bold">
+            <Button.Content>
+                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="60" Margin="0">
+                    <TextBlock.Background>
+                        <StaticResource ResourceKey="Eraser"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <StackPanel Name="spColors"  Height="187" Margin="461,20,50,210" Background="#FFF5E7B8" MouseEnter="spColors_MouseEnter" MouseLeave="spColors_MouseLeave">
+            <Grid Height="188" x:Name="g" RenderTransformOrigin="0.484,0.484" HorizontalAlignment="Right" Width="223">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="31*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="123*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btColor1" BorderThickness="0" HorizontalAlignment="Left" Margin="-63,0,0,0" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Background="Black" Height="64" Width="163" BorderBrush="{x:Null}" Focusable="False" Click="btColor1_Click"/>
+                <Button Style="{StaticResource FrameSelectorButtonStyle}" BorderThickness="0" x:Name="btColor2" HorizontalAlignment="Left" Margin="0,0,-2,0" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Background="Red" BorderBrush="{x:Null}" Grid.Column="1" Height="Auto" Width="125" Click="btColor2_Click"/>
+                <Button Style="{StaticResource FrameSelectorButtonStyle}" BorderThickness="0" x:Name="btColor6" HorizontalAlignment="Left" Margin="0,0,-18,-18" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Background="#FF0023FF" BorderBrush="{x:Null}" Width="141" Click="btColor6_Click"/>
+                <Button Style="{StaticResource FrameSelectorButtonStyle}" BorderThickness="0" x:Name="btColor5" HorizontalAlignment="Left" Margin="-74,0,0,-18" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Row="2" BorderBrush="{x:Null}" Background="#FFFF58E1" Width="174" Click="btColor5_Click"/>
+                <Button Style="{StaticResource FrameSelectorButtonStyle}" BorderThickness="0" x:Name="btColor3" HorizontalAlignment="Left" Margin="-84,0,0,0" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Row="1" Height="62" Background="#FF23FF00" BorderBrush="{x:Null}" Width="184" Click="btColor3_Click"/>
+                <Button Style="{StaticResource FrameSelectorButtonStyle}" BorderThickness="0" x:Name="btColor4" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Foreground="#FFBDFFFF" FontWeight="Bold" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1" Height="62" Background="#FFE8FF00" BorderBrush="{x:Null}" Width="125" Click="btColor4_Click"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="spSize" HorizontalAlignment="Left" Height="188" Margin="760,412,0,0" VerticalAlignment="Top" Width="300" Background="#FFE8D169" MouseEnter="StackPanel_MouseEnter" MouseLeave="StackPanel_MouseLeave" Visibility="Collapsed">
+            <Grid Height="188" x:Name="gSize" RenderTransformOrigin="0.484,0.484" HorizontalAlignment="Right" Width="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btSize3" Width="Auto" Height="Auto" Click="btSize_Click" Tag="3"  >
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="3" Width="3" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize5" Width="Auto" Height="Auto" Grid.Column="1" Click="btSize_Click" Tag="5">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="5" Width="5" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize7" Width="Auto" Height="Auto" Grid.Column="2" Click="btSize_Click" Tag="7">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="7" Width="7" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize9" Width="Auto" Height="Auto" Grid.Row="1" Click="btSize_Click" Tag="9" >
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="9" Width="9" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize10" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="1" Click="btSize_Click" Tag="10" >
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="10" Width="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize12" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="2" Click="btSize_Click" Tag="12">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="12" Width="12" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize15" Width="Auto" Height="Auto" Grid.Row="2" Click="btSize_Click" Tag="15">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="15" Width="15" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize17" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="1" Tag="17" Click="btSize_Click">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="17" Width="17" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btSize20" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="2" Tag="20" Click="btSize_Click">
+                    <Button.Content>
+                        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="20" Width="20" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Window>
