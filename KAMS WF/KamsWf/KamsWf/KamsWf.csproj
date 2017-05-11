@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLAS\ClControladorConfig.cs" />
+    <Compile Include="CLAS\ClControladorUser.cs" />
+    <Compile Include="CLAS\ClModelConfig.cs" />
+    <Compile Include="CLAS\ClModelUser.cs" />
+    <Compile Include="CLAS\ClMouse.cs" />
     <Compile Include="FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +93,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

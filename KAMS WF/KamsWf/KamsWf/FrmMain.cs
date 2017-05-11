@@ -9,49 +9,98 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
+using KamsWf.CLAS;
+
 
 namespace KamsWf
 {
     public partial class FrmMain : Form
     {
         private Boolean KamsActivo; //Creo que esta variable no va a utilizar-se
+        ClMouse.PUNT posAnt = new ClMouse.PUNT();
+        ClMouse.PUNT posActu = new ClMouse.PUNT();
+        private int anchoMax;
         public FrmMain()
         {
             InitializeComponent();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Cerrar y detener todo
-            this.Close();
-            pararKinect();
-        }
-
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            tmSimulaPosMouse.Start();
-            tmSimulaPosMouse.Tick += ticktest;
-            tmDesplegable.Tick += tickDesplegarTest;
+            posAnt.X = -99;
+            posAnt.Y = -99;
+            ClMouse.GetCursorPos(ref posActu);
+            tmPosMouse.Tick += openPanel;
+            tmMirarPosMouse.Tick += compararPosMouse;
+            tmDesplegar.Tick += desplegarForm;
+            tmMirarPosMouse.Start();
             enchegarKinect();
         }
 
-        private void tickDesplegarTest(object sender, EventArgs e)
-        {
-            //ESto no funciona
-            Thread.Sleep(100);
-            this.Height = this.Height + 1;
-            this.Refresh();
+        private void desplegarForm(object sender, EventArgs e)
+        {            
+            Height += 1;
+            Refresh();
+
         }
 
-        private void ticktest(object sender, EventArgs e)
+        private void compararPosMouse(object sender, EventArgs e)
         {
-            //cogerPosMouse();
-            //comparar con pos anterior
-            //anterior igual a pos
-            tmDesplegable.Start();
+            if (ClMouse.GetCursorPos(ref posActu))
+            {
+                if (posActu.Y == 0)
+                {
+                    tmPosMouse.Start();
+                }
+                else
+                {
+                    tmPosMouse.Stop();
+                }
+            }
+            posAnt = posActu;
+        }
 
-            //this.WindowState = FormWindowState.Maximized;
-            this.Height = 0;
+        private void openPanel(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            anchoMax = this.Bounds.Width;
+            this.WindowState = FormWindowState.Normal;
+            Height = 0;
+            Width = anchoMax;
+            if (posAnt.X >= 0 && posAnt.X <= this.Bounds.Width / 2)
+            {
+                //abrimos el panel de modulos
+                abrirModulos();
+                //MessageBox.Show("Modulos");
+            }
+            else
+            {
+                if (posAnt.X > this.Bounds.Width / 2 && posAnt.X<=this.Bounds.Width)
+                {
+                    //abrimos el panel de perfiles
+                    abrirPerfiles();
+                    //MessageBox.Show("Perfiles");
+                }
+            }
+            tmPosMouse.Stop();
+        }
+
+        private void abrirModulos()
+        {
+            tmDesplegar.Start();
+        }
+
+        private void abrirPerfiles()
+        {
+            tmDesplegar.Start();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Cerrar y detener todo            
+            notifyIcon1.Visible = false;
+            pararKinect();
+            this.Close();
         }
 
         private void acercaDeKAMSToolStripMenuItem_Click(object sender, EventArgs e)

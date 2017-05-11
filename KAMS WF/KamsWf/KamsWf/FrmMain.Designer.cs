@@ -43,8 +43,9 @@
             this.acercaDeKAMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmSimulaPosMouse = new System.Windows.Forms.Timer(this.components);
-            this.tmDesplegable = new System.Windows.Forms.Timer(this.components);
+            this.tmPosMouse = new System.Windows.Forms.Timer(this.components);
+            this.tmMirarPosMouse = new System.Windows.Forms.Timer(this.components);
+            this.tmDesplegar = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,28 +146,30 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // tmSimulaPosMouse
+            // tmPosMouse
             // 
-            this.tmSimulaPosMouse.Interval = 3000;
+            this.tmPosMouse.Interval = 5000;
             // 
-            // tmDesplegable
+            // tmMirarPosMouse
             // 
-            this.tmDesplegable.Interval = 1000;
+            this.tmMirarPosMouse.Interval = 50;
+            // 
+            // tmDesplegar
+            // 
+            this.tmDesplegar.Interval = 50;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 61);
+            this.ClientSize = new System.Drawing.Size(0, 0);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(99999, 300);
-            this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "FrmMain";
             this.ShowInTaskbar = false;
             this.Text = "Kinect Advanced Movement Sensor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -186,10 +189,11 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeKAMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.Timer tmSimulaPosMouse;
-        private System.Windows.Forms.Timer tmDesplegable;
+        private System.Windows.Forms.Timer tmPosMouse;
+        private System.Windows.Forms.Timer tmMirarPosMouse;
         private System.Windows.Forms.ToolStripMenuItem descargarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.Timer tmDesplegar;
     }
 }
 
