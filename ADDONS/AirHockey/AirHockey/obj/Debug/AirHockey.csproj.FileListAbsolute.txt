@@ -13,3 +13,22 @@ C:\Users\Akrakorn\Documents\GitHub\Project-DAM\ADDONS\AirHockey\AirHockey\obj\De
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.csproj.GenerateResource.Cache
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.exe
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.pdb
+<<<<<<< HEAD
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\bin\Debug\AirHockey.exe.config
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.exe
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.pdb
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\bin\Debug\AirHockey.exe
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\bin\Debug\AirHockey.pdb
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\bin\Debug\Microsoft.Kinect.dll
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\bin\Debug\Microsoft.Kinect.xml
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.csprojResolveAssemblyReference.cache
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\MainWindow.g.cs
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\App.g.cs
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey_MarkupCompile.cache
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey_MarkupCompile.lref
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\MainWindow.baml
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.g.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.Properties.Resources.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\ADDONS\AirHockey\AirHockey\obj\Debug\AirHockey.csproj.GenerateResource.Cache
+=======
+>>>>>>> origin/master
