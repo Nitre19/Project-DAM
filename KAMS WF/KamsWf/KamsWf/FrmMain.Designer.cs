@@ -148,7 +148,7 @@
             // 
             // tmPosMouse
             // 
-            this.tmPosMouse.Interval = 5000;
+            this.tmPosMouse.Interval = 3000;
             // 
             // tmMirarPosMouse
             // 
@@ -156,7 +156,7 @@
             // 
             // tmDesplegar
             // 
-            this.tmDesplegar.Interval = 50;
+            this.tmDesplegar.Interval = 5;
             // 
             // FrmMain
             // 
@@ -169,8 +169,11 @@
             this.MaximumSize = new System.Drawing.Size(99999, 300);
             this.Name = "FrmMain";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Kinect Advanced Movement Sensor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.MouseLeave += new System.EventHandler(this.FrmMain_MouseLeave);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

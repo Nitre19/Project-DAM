@@ -19,6 +19,7 @@ namespace KamsWf
         private Boolean KamsActivo; //Creo que esta variable no va a utilizar-se
         ClMouse.PUNT posAnt = new ClMouse.PUNT();
         ClMouse.PUNT posActu = new ClMouse.PUNT();
+        Screen pantalla = Screen.PrimaryScreen;
         private int anchoMax;
         public FrmMain()
         {
@@ -27,6 +28,12 @@ namespace KamsWf
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            anchoMax = this.Bounds.Width;
+            Height = 0;
+            Refresh();
+            this.WindowState = FormWindowState.Minimized;
+            //MessageBox.Show(pantalla.Bounds.Height.ToString()+","+ pantalla.Bounds.Width.ToString());
             posAnt.X = -99;
             posAnt.Y = -99;
             ClMouse.GetCursorPos(ref posActu);
@@ -34,12 +41,13 @@ namespace KamsWf
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
             tmMirarPosMouse.Start();
-            enchegarKinect();
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void desplegarForm(object sender, EventArgs e)
-        {            
-            Height += 1;
+        {
+            Visible = true;
+            Height += 5;
             Refresh();
 
         }
@@ -51,10 +59,19 @@ namespace KamsWf
                 if (posActu.Y == 0)
                 {
                     tmPosMouse.Start();
+                    tmMirarPosMouse.Stop();
                 }
                 else
                 {
-                    tmPosMouse.Stop();
+                    if (posActu.Y >= pantalla.Bounds.Height - 5)
+                    {
+                        tmPosMouse.Start();
+                        tmMirarPosMouse.Stop();
+                    }
+                    else
+                    {
+                        tmPosMouse.Stop();
+                    }
                 }
             }
             posAnt = posActu;
@@ -63,24 +80,41 @@ namespace KamsWf
         private void openPanel(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            anchoMax = this.Bounds.Width;
+
+            //anchoMax = this.Bounds.Width;
             this.WindowState = FormWindowState.Normal;
+            this.Location = new Point(0, 0);
             Height = 0;
             Width = anchoMax;
-            if (posAnt.X >= 0 && posAnt.X <= this.Bounds.Width / 2)
+            //Visible = false;
+            Refresh();
+            if (posAnt.Y <= 0)
             {
-                //abrimos el panel de modulos
-                abrirModulos();
-                //MessageBox.Show("Modulos");
-            }
-            else
-            {
-                if (posAnt.X > this.Bounds.Width / 2 && posAnt.X<=this.Bounds.Width)
+
+
+                if (posAnt.X >= 0 && posAnt.X <= this.Bounds.Width / 2)
                 {
-                    //abrimos el panel de perfiles
-                    abrirPerfiles();
-                    //MessageBox.Show("Perfiles");
+                    //abrimos el panel de modulos
+                    tmPosMouse.Stop();
+                    abrirModulos();
+                    //MessageBox.Show("Modulos");
                 }
+                else
+                {
+                    if (posAnt.X > this.Bounds.Width / 2 && posAnt.X <= this.Bounds.Width)
+                    {
+                        //abrimos el panel de perfiles
+                        abrirPerfiles();
+                        //MessageBox.Show("Perfiles");
+                    }
+                }
+            }else
+            {
+                if (obtenerQttDeUnProcess("osk") < 1)
+                {
+                    encenderProcess("osk.exe", "osk"); //Preguntar si tengo que poner toda la ruta
+                }
+                tmMirarPosMouse.Start();
             }
             tmPosMouse.Stop();
         }
@@ -99,7 +133,8 @@ namespace KamsWf
         {
             //Cerrar y detener todo            
             notifyIcon1.Visible = false;
-            pararKinect();
+            pararProcess("KinectV2MouseControl");
+            pararProcess("osk");
             this.Close();
         }
 
@@ -122,7 +157,7 @@ namespace KamsWf
             KamsActivo = false;
             desactivarKAMSToolStripMenuItem.Checked = true;
             ActivarToolStripMenuItem.Checked = false;
-            pararKinect();
+            pararProcess("KinectV2MouseControl");
         }
 
         private void holaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,7 +165,7 @@ namespace KamsWf
             KamsActivo = true;
             desactivarKAMSToolStripMenuItem.Checked = false;
             ActivarToolStripMenuItem.Checked = true;
-            enchegarKinect();
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void descargarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,21 +178,34 @@ namespace KamsWf
         {
             //muestra uuna lista con las app's instaladas y te permite eliminarlas, es muy parecido 
         }
-
-        //esto se puede pasar a la clase KinectControls;
-        private void enchegarKinect()
+        
+        private void encenderProcess(String process, String processName)
         {
-            pararKinect();
-            Process.Start("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe");
+            pararProcess(processName);
+            Process.Start(process);
         }
 
-        private void pararKinect()
+        private void pararProcess(String processName)
         {
-            Process[] KinectProcess = Process.GetProcessesByName("KinectV2MouseControl");
-            foreach (Process currentProc in KinectProcess)
+            Process[] Process = System.Diagnostics.Process.GetProcessesByName(processName);
+            foreach (Process currentProc in Process)
             {
                 currentProc.Kill();
             }
+        }
+
+        private int obtenerQttDeUnProcess(String processName)
+        {
+            Process[] Process = System.Diagnostics.Process.GetProcessesByName(processName);
+            return Process.Count();
+        }
+
+        private void FrmMain_MouseLeave(object sender, EventArgs e)
+        {
+            tmDesplegar.Stop();
+            tmMirarPosMouse.Start();
+            Height = 0;
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
