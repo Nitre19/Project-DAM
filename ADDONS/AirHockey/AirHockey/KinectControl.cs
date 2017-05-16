@@ -7,6 +7,7 @@ using Microsoft.Kinect;
 using System.Windows.Threading;
 using System.Windows;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace AirHockey
 {
@@ -93,13 +94,14 @@ namespace AirHockey
         /// </summary>
         bool wasRightGrip = false;
 
-        private Rectangle player1;
-        private Rectangle player2;
+        private StackPanel spPlayer1;
+        private StackPanel spPlayer2;
+        private int current_body = 0;
 
-        public KinectControl(Rectangle rectangle1, Rectangle rectangle2)
+        public KinectControl(ref StackPanel spplayer1, ref StackPanel spplayer2)
         {
-            this.player1 = rectangle1;
-            this.player2 = rectangle2;
+            this.spPlayer1 = spplayer1;
+            this.spPlayer2 = spplayer2;
             // get Active Kinect Sensor
             sensor = KinectSensor.GetDefault();
             // open the reader for the body frames
@@ -217,10 +219,17 @@ namespace AirHockey
                        // MouseControl.SetCursorPos((int)(curPos.X + (x * mouseSensitivity * screenWidth - curPos.X) * smoothing), (int)(curPos.Y + ((y + 0.25f) * mouseSensitivity * screenHeight - curPos.Y) * smoothing));
 
                         alreadyTrackedPos = true;
-                        
+
                         // asd
-                        if (body == bodies[0]) player1.Margin = new Thickness(handRight.X, handRight.Y, 0, 0);
-                        if (body == bodies[1]) player2.Margin = new Thickness(handRight.X, handRight.Y, 0, 0);
+
+                        if (body == bodies[0])
+                        {
+                            spPlayer1.Margin = new Thickness(x * 1000, y * 1000, 0, 0);
+                        }
+                        if (body == bodies[1])
+                        {
+                            spPlayer2.Margin = new Thickness(x * 1000 + screenWidth / 2, y * 1000, 0, 0);
+                        }
 
                         // Grip gesture
                         if (doClick && useGripGesture)
@@ -280,7 +289,13 @@ namespace AirHockey
                     }
 
                     // get first tracked body only
-                    //break;
+                    if (current_body == 1)
+                    {
+                        current_body = 0;
+                        break;
+                    }
+                    current_body++;
+
                 }
             }
         }
