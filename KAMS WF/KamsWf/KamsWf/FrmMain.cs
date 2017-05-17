@@ -41,7 +41,11 @@ namespace KamsWf
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
             tmMirarPosMouse.Start();
+<<<<<<< HEAD
             encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+=======
+            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+>>>>>>> origin/master
         }
 
         private void desplegarForm(object sender, EventArgs e)
@@ -86,6 +90,7 @@ namespace KamsWf
             this.Location = new Point(0, 0);
             Height = 0;
             Width = anchoMax;
+            this.Focus();
             //Visible = false;
             Refresh();
             if (posAnt.Y <= 0)
@@ -149,7 +154,7 @@ namespace KamsWf
         private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //abrir FrmConfig
-
+            abrirConfig();
         }
 
         private void desactivarKAMSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,6 +211,12 @@ namespace KamsWf
             tmMirarPosMouse.Start();
             Height = 0;
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        public void abrirConfig()
+        {
+            FrmConfig fConfig = new FrmConfig();
+            fConfig.ShowDialog();
         }
     }
 }

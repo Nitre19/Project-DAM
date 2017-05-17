@@ -16,5 +16,10 @@ namespace KamsWf
         {
             InitializeComponent();
         }
+
+        private void FrmConfig_Load(object sender, EventArgs e)
+        {
+            cmbIdioma.SelectedIndex = 0;
+        }
     }
 }
