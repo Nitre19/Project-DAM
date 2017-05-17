@@ -41,7 +41,6 @@ namespace KamsWf.CLAS
             xComentari = xDoc.CreateComment("Configuracio");
             xDoc.InsertAfter(xComentari, xDeclaracio);
 
-
             xNodeArrel = xDoc.CreateElement("Configuracio");
             xDoc.AppendChild(xNodeArrel);
 
@@ -88,8 +87,7 @@ namespace KamsWf.CLAS
             xComentari = xDoc.CreateComment("Fi de la llista");
             xDoc.InsertAfter(xComentari, xNodeArrel);
 
-            xDoc.Save(startUpPath+ruta);
-            
+            xDoc.Save(startUpPath+ruta);            
         }
 
         public void llegirXML()
