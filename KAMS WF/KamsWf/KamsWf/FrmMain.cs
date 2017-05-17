@@ -41,7 +41,7 @@ namespace KamsWf
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
             tmMirarPosMouse.Start();
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void desplegarForm(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace KamsWf
             {
                 if (obtenerQttDeUnProcess("osk") < 1)
                 {
-                    encenderProcess("osk.exe", "osk"); //Preguntar si tengo que poner toda la ruta
+                    //encenderProcess("osk.exe", "osk"); //Preguntar si tengo que poner toda la ruta
                 }
                 tmMirarPosMouse.Start();
             }
@@ -165,7 +165,7 @@ namespace KamsWf
             KamsActivo = true;
             desactivarKAMSToolStripMenuItem.Checked = false;
             ActivarToolStripMenuItem.Checked = true;
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void descargarToolStripMenuItem_Click(object sender, EventArgs e)
