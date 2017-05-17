@@ -222,14 +222,9 @@ namespace AirHockey
 
                         // asd
 
-                        if (body == bodies[0])
-                        {
-                            spPlayer1.Margin = new Thickness(x * 1000, y * 1000, 0, 0);
-                        }
-                        if (body == bodies[1])
-                        {
-                            spPlayer2.Margin = new Thickness(x * 1000 + screenWidth / 2, y * 1000, 0, 0);
-                        }
+                        spPlayer1.Margin = new Thickness(x * 1000, y * 1000, 0, 0);
+                        
+                        // if (body == bodies[1]) spPlayer2.Margin = new Thickness(x * 1000 + screenWidth / 2, y * 1000, 0, 0);
 
                         // Grip gesture
                         if (doClick && useGripGesture)
@@ -289,13 +284,15 @@ namespace AirHockey
                     }
 
                     // get first tracked body only
+                    break;
+                    /*
                     if (current_body == 1)
                     {
                         current_body = 0;
                         break;
                     }
                     current_body++;
-
+                    */
                 }
             }
         }
