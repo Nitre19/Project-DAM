@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Usuaris-->
+<Users>
+  <user>
+    <nom>Juanjo88</nom>
+    <rutaFoto>C:\Users\JuanJosé\Downloads\nike-empresa.png</rutaFoto>
+  </user>
+  <user>
+    <nom>jaume</nom>
+    <rutaFoto>C:\Users\JuanJosé\Downloads\Baileys.jpg</rutaFoto>
+  </user>
+  <user>
+    <nom>Pepe</nom>
+    <rutaFoto>C:\Users\JuanJosé\Downloads\Banckdesang\public_html\imagenes\Screenshot_1.png</rutaFoto>
+  </user>
+  <user>
+    <nom>Ruben</nom>
+    <rutaFoto>C:\Users\JuanJosé\Downloads\Banckdesang\public_html\imagenes\definitiv.png</rutaFoto>
+  </user>
+  <user>
+    <nom>Manu</nom>
+    <rutaFoto>C:\Users\JuanJosé\Downloads\Banckdesang\public_html\imagenes\edat.png</rutaFoto>
+  </user>
+</Users>
+<!--Fi de la llista-->

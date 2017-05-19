@@ -52,6 +52,12 @@
     <Compile Include="CLAS\ClModelConfig.cs" />
     <Compile Include="CLAS\ClModelUser.cs" />
     <Compile Include="CLAS\ClMouse.cs" />
+    <Compile Include="FrmPerfilUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilUser.designer.cs">
+      <DependentUpon>FrmPerfilUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmPerfilUser.resx">
+      <DependentUpon>FrmPerfilUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace KamsWf.CLAS
 {
@@ -10,11 +11,13 @@ namespace KamsWf.CLAS
     {
         ClModelUser model;
         private String nomXML="xmlUsers.xml";
+        public XmlDocument xDoc = new XmlDocument();
 
         //Constructor
         public ClControladorUser(String startUpPath)
         {
             model = new ClModelUser(startUpPath);
+            xDoc = model.xDoc;
         }
 
         //Escriu XML
@@ -26,7 +29,7 @@ namespace KamsWf.CLAS
         //Carga XML
         public void cargarXML()
         {
-            model.cargarXML(nomXML);
+            model.cargarXML(nomXML, xDoc);
         }
 
         //Crea User
@@ -42,9 +45,9 @@ namespace KamsWf.CLAS
         }
 
         //Modifica user
-        public void modificaUser(String nomUser, String rutaFoto)
+        public void modificaUser(String nomUser, String nomUserVell, String rutaFoto)
         {
-            model.modificarUser(nomUser, rutaFoto);
+            model.modificarUser(nomUser, nomUserVell, rutaFoto);
         }
 
         //Valida Carpeta
