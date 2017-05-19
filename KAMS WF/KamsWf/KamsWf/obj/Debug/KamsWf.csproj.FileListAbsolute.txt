@@ -26,3 +26,5 @@ C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\K
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.Properties.Resources.resources
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csproj.GenerateResource.Cache
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.exe.config
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.pdb
