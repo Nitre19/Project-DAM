@@ -27,7 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C515F6464C1E4BFA8A16A5709A2A3947"
+        "MsmKey" = "8:_5996E3EA7DEC4102AB61A950192B258C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -161,10 +161,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C515F6464C1E4BFA8A16A5709A2A3947"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5996E3EA7DEC4102AB61A950192B258C"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\Capture.JPG"
-            "TargetName" = "8:Capture.JPG"
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\logo3.png"
+            "TargetName" = "8:logo3.png"
             "Tag" = "8:"
             "Folder" = "8:_6E7620062EE74F3B8CAB04A69B4BFE68"
             "Condition" = "8:"
@@ -305,7 +305,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:KAMS"
         "ProductCode" = "8:{8D6B9166-B02E-4C63-84A7-1C1E93E2CDF7}"
-        "PackageCode" = "8:{D2DF98C8-D86B-46D1-8288-81F82AB4C1BA}"
+        "PackageCode" = "8:{1F08995A-420C-4C89-AE46-DDA8B8395AF4}"
         "UpgradeCode" = "8:{ED511E01-3F84-4190-A6F6-C30B51D2E6D1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -318,7 +318,7 @@
         "ARPHELPLINK" = "8:"
         "Title" = "8:KAMS Installer"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:KAMS"
+        "ARPCONTACT" = "8:"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -574,7 +574,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_5996E3EA7DEC4102AB61A950192B258C"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
