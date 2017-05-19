@@ -142,7 +142,7 @@ namespace KamsWf
                 Label lblModulo = new Label();
                 pbModulo.Tag = item;
                 lblModulo.Tag = item;
-                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                lblModulo.Font = new Font("Orbitron", 12, FontStyle.Bold);
                 pbModulo.Size = new Size(100, 100);
                 lblModulo.Size = new Size(100, 40);
                 pbModulo.Image = new Bitmap("C:\\Users\\marc\\Desktop\\testSprint2\\img\\imgModulos\\"+item.Replace(".exe",".png"));
