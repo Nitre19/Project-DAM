@@ -41,11 +41,7 @@ namespace KamsWf
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
             tmMirarPosMouse.Start();
-<<<<<<< HEAD
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
-=======
-            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
->>>>>>> origin/master
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void desplegarForm(object sender, EventArgs e)
@@ -53,7 +49,6 @@ namespace KamsWf
             Visible = true;
             Height += 5;
             Refresh();
-
         }
 
         private void compararPosMouse(object sender, EventArgs e)
@@ -63,18 +58,23 @@ namespace KamsWf
                 if (posActu.Y == 0)
                 {
                     tmPosMouse.Start();
-                    tmMirarPosMouse.Stop();
                 }
                 else
                 {
                     if (posActu.Y >= pantalla.Bounds.Height - 5)
                     {
                         tmPosMouse.Start();
-                        tmMirarPosMouse.Stop();
                     }
                     else
                     {
-                        tmPosMouse.Stop();
+                        if (posActu.X >= pantalla.Bounds.Width - 5)
+                        {
+                            tmPosMouse.Start();
+                        }
+                        else
+                        {
+                            tmPosMouse.Stop();
+                        }
                     }
                 }
             }
@@ -93,11 +93,10 @@ namespace KamsWf
             this.Focus();
             //Visible = false;
             Refresh();
-            if (posAnt.Y <= 0)
+            ClMouse.GetCursorPos(ref posActu);
+            if (posActu.Y <= 0)
             {
-
-
-                if (posAnt.X >= 0 && posAnt.X <= this.Bounds.Width / 2)
+                if (posActu.X >= 0 && posActu.X <= this.Bounds.Width / 2)
                 {
                     //abrimos el panel de modulos
                     tmPosMouse.Stop();
@@ -106,7 +105,7 @@ namespace KamsWf
                 }
                 else
                 {
-                    if (posAnt.X > this.Bounds.Width / 2 && posAnt.X <= this.Bounds.Width)
+                    if (posActu.X > this.Bounds.Width / 2 && posActu.X <= this.Bounds.Width)
                     {
                         //abrimos el panel de perfiles
                         abrirPerfiles();
@@ -115,18 +114,54 @@ namespace KamsWf
                 }
             }else
             {
-                if (obtenerQttDeUnProcess("osk") < 1)
+                if (posActu.Y >= pantalla.Bounds.Height - 5)
                 {
-                    //encenderProcess("osk.exe", "osk"); //Preguntar si tengo que poner toda la ruta
-                }
-                tmMirarPosMouse.Start();
+                    if (obtenerQttDeUnProcess("osk") < 1)
+                    {
+                        //encenderProcess("osk.exe", "osk"); //Preguntar si tengo que poner toda la ruta
+                    }
+                }else
+                {
+                    if (posActu.X >= pantalla.Bounds.Width - 5)
+                    {
+                        abrirConfig();
+                    }
+                }                
             }
             tmPosMouse.Stop();
         }
 
         private void abrirModulos()
         {
+            int i = 0;
+            List<String> archivosEncontrados = new List<string>();
+            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\marc\\Desktop\\testSprint2\\modulos");
+            foreach (var item in archivosEncontrados)
+            {
+                PictureBox pbModulo = new PictureBox();
+                Label lblModulo = new Label();
+                pbModulo.Tag = item;
+                lblModulo.Tag = item;
+                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                pbModulo.Size = new Size(100, 100);
+                lblModulo.Size = new Size(100, 40);
+                pbModulo.Image = new Bitmap("C:\\Users\\marc\\Desktop\\testSprint2\\img\\imgModulos\\"+item.Replace(".exe",".png"));
+                pbModulo.Location = new Point((20+pbModulo.Width)*i+20, 20);
+                lblModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20+pbModulo.Height);
+                lblModulo.Text = item.Replace(".exe", "").ToUpper();
+                lblModulo.TextAlign = ContentAlignment.MiddleCenter;
+                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbModulo.Click += PbModulo_Click;
+                this.Controls.Add(pbModulo);
+                this.Controls.Add(lblModulo);
+                i++;
+            }
             tmDesplegar.Start();
+        }
+
+        private void PbModulo_Click(object sender, EventArgs e)
+        {
+            Process.Start("C:\\Users\\marc\\Desktop\\testSprint2\\modulos\\" + ((PictureBox)sender).Tag);
         }
 
         private void abrirPerfiles()
@@ -207,10 +242,15 @@ namespace KamsWf
 
         private void FrmMain_MouseLeave(object sender, EventArgs e)
         {
-            tmDesplegar.Stop();
-            tmMirarPosMouse.Start();
-            Height = 0;
-            this.WindowState = FormWindowState.Minimized;
+            ClMouse.PUNT posMouse = new ClMouse.PUNT();
+            ClMouse.GetCursorPos(ref posMouse);
+            if (posMouse.Y>200)
+            {
+                tmDesplegar.Stop();
+                tmMirarPosMouse.Start();
+                Height = 0;
+                this.WindowState = FormWindowState.Minimized;
+            }            
         }
 
         public void abrirConfig()

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLAS\ClBuscador.cs" />
     <Compile Include="CLAS\ClControladorConfig.cs" />
     <Compile Include="CLAS\ClControladorUser.cs" />
     <Compile Include="CLAS\ClModelConfig.cs" />
