@@ -28,3 +28,12 @@ C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\K
 C:\Users\Akrakorn\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.exe.config
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.pdb
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.exe
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\KamsWf.pdb
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csprojResolveAssemblyReference.cache
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmConfig.resources
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmMain.resources
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.Properties.Resources.resources
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csproj.GenerateResource.Cache
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmPerfilUser.resources

@@ -20,7 +20,10 @@ namespace KamsWf.CLAS
         {
             this.startUpPath = startUpPath;
             validarCarpeta();
-            escriuXML(xDoc, "xmlUsers.xml");
+            if (!File.Exists(startUpPath + ruta + "xmlUsers.xml"))
+            {
+                escriuXML(xDoc, "xmlUsers.xml");
+            }
         }
 
         public void escriuXML(XmlDocument xmlDoc, String nomFitxer)
@@ -51,9 +54,9 @@ namespace KamsWf.CLAS
         }
 
         //funcion que carga el xml que le pasamos por parametros en el xml de la clase
-        public void cargarXML(String nomFitxer)
+        public void cargarXML(String nomFitxer, XmlDocument xml)
         {
-            xDoc.Load(startUpPath + ruta + nomFitxer);
+            xml.Load(startUpPath + ruta + nomFitxer);
         }
 
         public bool crearUser(String nom, String rutaFoto, XmlDocument xmlDoc, String nomFitxer)
@@ -94,7 +97,7 @@ namespace KamsWf.CLAS
             bool existe = false;
             String nomComparar, nomXMLComparar;
 
-            cargarXML(nomFitxer);
+            cargarXML(nomFitxer, xDoc);
 
             //recuperamos todos los nodos dentro de USERS
             foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
@@ -124,7 +127,7 @@ namespace KamsWf.CLAS
             {
                 //creamos el fichero en el que guardaremos todos los usuarios menos el que queremos eliminar
                 escriuXML(xml, "xmlUsers2.xml");
-                cargarXML("xmlUsers.xml");
+                cargarXML("xmlUsers.xml", xDoc);
 
                 foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
                 {
@@ -152,48 +155,50 @@ namespace KamsWf.CLAS
             return correcte;
         }
 
-        public void modificarUser(String nomUser, String rutaFoto)
+        public void modificarUser(String nomUserNou, String nomUserVell, String rutaFoto)
         {
             XmlDocument xml = new XmlDocument();
             int n = 0;
 
-            
+
             //creamos el fichero en el que guardaremos todos los usuarios menos el que queremos eliminar
             escriuXML(xml, "xmlUsers2.xml");
-            cargarXML("xmlUsers.xml");
+            cargarXML("xmlUsers.xml", xDoc);
 
             foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
             {
 
-                if (!(xnode.ChildNodes[0].InnerText.ToUpper().Equals(nomUser)))
+                if (!(xnode.ChildNodes[0].InnerText.ToUpper().Equals(nomUserVell.ToUpper())))
                 {
                     //creamos usuario en el fichero 2
                     crearUser(xnode.ChildNodes[0].InnerText, xnode.ChildNodes[1].InnerText, xml, "xmlUsers2.xml");
-                }else
+                }
+                else
                 {
-                    if(nomUser!=null && rutaFoto != null)
+                    if (nomUserNou != null && rutaFoto != null)
                     {
-                        crearUser(nomUser, rutaFoto, xml, "xmlUser2.xml");
-                    }else
+                        crearUser(nomUserNou, rutaFoto, xml, "xmlUsers2.xml");
+                    }
+                    else
                     {
-                        if (nomUser == null)
+                        if (nomUserNou == null)
                         {
-                            crearUser(xnode.ChildNodes[0].InnerText, rutaFoto, xml, "xmlUser2.xml");
+                            crearUser(nomUserVell, rutaFoto, xml, "xmlUsers2.xml");
                         }
                         else
                         {
-                            crearUser(nomUser, xnode.ChildNodes[0].InnerText, xml, "xmlUser2.xml");
+                            crearUser(nomUserNou, xnode.ChildNodes[0].InnerText, xml, "xmlUsers2.xml");
                         }
                     }
-                    
                 }
-
                 n++;
             }
             //eliminamos el fichero 1
             File.Delete(startUpPath + ruta + "xmlUsers.xml");
             //le cambiamos el nombre al fichero 2 --> pasa a fichero 1
             File.Move(startUpPath + ruta + "xmlUsers2.xml", startUpPath + ruta + "xmlUsers.xml");
+
+            guardarXML(xml, "xmlUsers.xml");
         }
 
         //guardamos el xml que le pasamos con el nombre que le pasamos
@@ -205,9 +210,9 @@ namespace KamsWf.CLAS
         //validamos si existe la carpeta xml, sino la creamos
         public void validarCarpeta()
         {
-            if (!(Directory.Exists(startUpPath + "XML")))
+            if (!(Directory.Exists(startUpPath + "\\XML")))
             {
-                Directory.CreateDirectory(startUpPath + "XML");
+                Directory.CreateDirectory(startUpPath + "\\XML");
             }
         }
 

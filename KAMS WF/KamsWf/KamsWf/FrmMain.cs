@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using KamsWf.CLAS;
-
+using System.Xml;
 
 namespace KamsWf
 {
@@ -20,6 +20,7 @@ namespace KamsWf
         ClMouse.PUNT posAnt = new ClMouse.PUNT();
         ClMouse.PUNT posActu = new ClMouse.PUNT();
         Screen pantalla = Screen.PrimaryScreen;
+        ClControladorUser controladorUser = new ClControladorUser(Application.StartupPath);
         private int anchoMax;
         public FrmMain()
         {
@@ -41,7 +42,7 @@ namespace KamsWf
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
             tmMirarPosMouse.Start();
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void desplegarForm(object sender, EventArgs e)
@@ -166,7 +167,36 @@ namespace KamsWf
 
         private void abrirPerfiles()
         {
+            int i = 0;
+            controladorUser.cargarXML();
+            foreach (XmlNode node in controladorUser.xDoc.DocumentElement.ChildNodes)
+            {
+                PictureBox pbModulo = new PictureBox();
+                Label lblModulo = new Label();
+                pbModulo.Tag = node.ChildNodes[0].InnerText + ";" + node.ChildNodes[1].InnerText;
+                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                pbModulo.Size = new Size(100, 100);
+                lblModulo.Size = new Size(100, 40);
+                pbModulo.Image = new Bitmap(node.ChildNodes[1].InnerText);
+                pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
+                lblModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20 + pbModulo.Height);
+                lblModulo.Text = node.ChildNodes[0].InnerText;
+                lblModulo.TextAlign = ContentAlignment.MiddleCenter;
+                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbModulo.Click += PbPerfil_Click;
+                this.Controls.Add(pbModulo);
+                this.Controls.Add(lblModulo);
+                i++;
+            }
+
             tmDesplegar.Start();
+        }
+
+        private void PbPerfil_Click(object sender, EventArgs e)
+        {
+            String[] datos = ((PictureBox)sender).Tag.ToString().Split(';');
+            FrmPerfilUser frmUsers = new FrmPerfilUser(datos[0], datos[1]);
+            frmUsers.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
