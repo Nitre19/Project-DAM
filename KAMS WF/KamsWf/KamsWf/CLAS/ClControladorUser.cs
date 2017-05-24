@@ -29,7 +29,7 @@ namespace KamsWf.CLAS
         //Carga XML
         public void cargarXML()
         {
-            model.cargarXML(nomXML, xDoc);
+            model.cargarXML(nomXML);
         }
 
         //Crea User

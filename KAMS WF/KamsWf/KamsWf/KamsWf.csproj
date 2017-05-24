@@ -52,6 +52,18 @@
     <Compile Include="CLAS\ClModelConfig.cs" />
     <Compile Include="CLAS\ClModelUser.cs" />
     <Compile Include="CLAS\ClMouse.cs" />
+    <Compile Include="FrmAccesosDirectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAccesosDirectos.Designer.cs">
+      <DependentUpon>FrmAccesosDirectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarUser.designer.cs">
+      <DependentUpon>FrmEliminarUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPerfilUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAccesosDirectos.resx">
+      <DependentUpon>FrmAccesosDirectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarUser.resx">
+      <DependentUpon>FrmEliminarUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPerfilUser.resx">
       <DependentUpon>FrmPerfilUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +124,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Capture.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btañadir.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\negativo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newYorkTimes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yahoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YouTube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\educem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ask.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\educem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elPeriodico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facebook.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOOGLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Instagram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

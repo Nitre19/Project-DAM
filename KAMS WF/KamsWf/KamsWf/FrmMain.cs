@@ -20,6 +20,8 @@ namespace KamsWf
         ClMouse.PUNT posAnt = new ClMouse.PUNT();
         ClMouse.PUNT posActu = new ClMouse.PUNT();
         Screen pantalla = Screen.PrimaryScreen;
+        FrmPerfilUser frmUsers;
+        FrmEliminarUser frmEliminarUser;
         ClControladorUser controladorUser = new ClControladorUser(Application.StartupPath);
         FrmConfig fConfig = new FrmConfig();
         private int anchoMax;
@@ -86,7 +88,7 @@ namespace KamsWf
                     }
                     else
                     {
-                        if (posActu.X >= pantalla.Bounds.Width - 5)
+                        if (posActu.X <= 5)
                         {
                             tmPosMouse.Start();
                         }
@@ -141,9 +143,13 @@ namespace KamsWf
                     }
                 }else
                 {
-                    if (posActu.X >= pantalla.Bounds.Width - 5)
+                    if (posActu.X <= 5)
                     {
+<<<<<<< HEAD
                         //abrirConfig();
+=======
+                        abrirAccesosDirectos();
+>>>>>>> origin/master
                     }
                 }                
             }
@@ -152,33 +158,64 @@ namespace KamsWf
 
         private void abrirModulos()
         {
+<<<<<<< HEAD
             limpiarControls();
+=======
+            borrarControles();
+
+>>>>>>> origin/master
             int i = 0;
             List<String> archivosEncontrados = new List<string>();
-            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\marc\\Desktop\\testSprint2\\modulos");
+            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\JuanJosé\\Documents\\GitHub\\Project-DAM\\KAMS WF\\KamsWf\\modulos");
             foreach (var item in archivosEncontrados)
             {
                 PictureBox pbModulo = new PictureBox();
-                Label lblModulo = new Label();
                 pbModulo.Tag = item;
+                pbModulo.Size = new Size(100, 100);
+                pbModulo.Image = new Bitmap("C:\\Users\\JuanJosé\\Documents\\GitHub\\Project-DAM\\KAMS WF\\KamsWf\\imgModulos\\" + item.Replace(".exe", ".png"));
+                pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
+                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbModulo.Click += PbModulo_Click;
+                pbModulo.MouseHover += cambiarCursor;
+                pbModulo.MouseLeave += cursorDefault;
+
+                Label lblModulo = new Label();
                 lblModulo.Tag = item;
                 lblModulo.Font = new Font("Orbitron", 12, FontStyle.Bold);
-                pbModulo.Size = new Size(100, 100);
                 lblModulo.Size = new Size(100, 40);
-                pbModulo.Image = new Bitmap("C:\\Users\\marc\\Desktop\\testSprint2\\img\\imgModulos\\"+item.Replace(".exe",".png"));
-                pbModulo.Location = new Point((20+pbModulo.Width)*i+20, 20);
                 lblModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20+pbModulo.Height);
                 lblModulo.Text = item.Replace(".exe", "").ToUpper();
                 lblModulo.TextAlign = ContentAlignment.MiddleCenter;
-                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbModulo.Click += PbModulo_Click;
+
                 this.Controls.Add(pbModulo);
                 this.Controls.Add(lblModulo);
                 i++;
             }
+
+            PictureBox btAñadir = new PictureBox();
+            btAñadir.Image = Properties.Resources.btAdd;
+            btAñadir.Size = new Size(50, 50);
+            btAñadir.SizeMode = PictureBoxSizeMode.StretchImage;
+            btAñadir.MouseHover += cambiarCursor;
+            btAñadir.MouseLeave += cursorDefault;
+            btAñadir.Click += btAñadirModulo_click;
+            btAñadir.Location = new Point(this.Controls[this.Controls.Count - 1].Right + 50, 30);
+
+            PictureBox btEliminar = new PictureBox();
+            btEliminar.Image = Properties.Resources.btRemove;
+            btEliminar.Size = new Size(50, 50);
+            btEliminar.MouseHover += cambiarCursor;
+            btEliminar.MouseLeave += cursorDefault;
+            btEliminar.Click += btEliminarModelo_click;
+            btEliminar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btEliminar.Location = new Point(this.Controls[this.Controls.Count - 1].Right + 50, btEliminar.Bottom + 50);
+
+
+            this.Controls.Add(btAñadir);
+            this.Controls.Add(btEliminar);
             tmDesplegar.Start();
         }
-
+        
         private void PbModulo_Click(object sender, EventArgs e)
         {
             Process.Start("C:\\Users\\marc\\Desktop\\testSprint2\\modulos\\" + ((PictureBox)sender).Tag);
@@ -186,28 +223,63 @@ namespace KamsWf
 
         private void abrirPerfiles()
         {
+<<<<<<< HEAD
             limpiarControls();
+=======
+            borrarControles();
+
+
+>>>>>>> origin/master
             int i = 0;
             controladorUser.cargarXML();
             foreach (XmlNode node in controladorUser.xDoc.DocumentElement.ChildNodes)
             {
                 PictureBox pbModulo = new PictureBox();
-                Label lblModulo = new Label();
                 pbModulo.Tag = node.ChildNodes[0].InnerText + ";" + node.ChildNodes[1].InnerText;
+<<<<<<< HEAD
                 lblModulo.Font = new Font(lblModulo.Font.FontFamily, 12, FontStyle.Bold);
+=======
+>>>>>>> origin/master
                 pbModulo.Size = new Size(100, 100);
-                lblModulo.Size = new Size(100, 40);
                 pbModulo.Image = new Bitmap(node.ChildNodes[1].InnerText);
                 pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
+                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbModulo.Click += PbPerfil_Click;
+                pbModulo.MouseHover += cambiarCursor;
+                pbModulo.MouseLeave += cursorDefault;
+
+                Label lblModulo = new Label();
+                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                lblModulo.Size = new Size(100, 40);
                 lblModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20 + pbModulo.Height);
                 lblModulo.Text = node.ChildNodes[0].InnerText;
                 lblModulo.TextAlign = ContentAlignment.MiddleCenter;
-                pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbModulo.Click += PbPerfil_Click;
+
                 this.Controls.Add(pbModulo);
                 this.Controls.Add(lblModulo);
                 i++;
             }
+
+            PictureBox btAñadir = new PictureBox();
+            btAñadir.Image = Properties.Resources.btAdd;
+            btAñadir.Size = new Size(50, 50);
+            btAñadir.SizeMode = PictureBoxSizeMode.StretchImage; 
+            btAñadir.Location = new Point(this.Controls[this.Controls.Count - 1].Right + 50, 30);
+            btAñadir.MouseHover += cambiarCursor;
+            btAñadir.MouseLeave += cursorDefault;
+            btAñadir.Click += btAñadirPerfil_click;
+
+            PictureBox btEliminar = new PictureBox();
+            btEliminar.Image = Properties.Resources.btRemove;
+            btEliminar.Size = new Size(50, 50);
+            btEliminar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btEliminar.Location = new Point(this.Controls[this.Controls.Count - 1].Right + 50, btEliminar.Bottom+50);
+            btEliminar.MouseHover += cambiarCursor;
+            btEliminar.MouseLeave += cursorDefault;
+            btEliminar.Click += btEliminarPerfil_click;
+
+            this.Controls.Add(btAñadir);
+            this.Controls.Add(btEliminar);
 
             tmDesplegar.Start();
         }
@@ -215,7 +287,7 @@ namespace KamsWf
         private void PbPerfil_Click(object sender, EventArgs e)
         {
             String[] datos = ((PictureBox)sender).Tag.ToString().Split(';');
-            FrmPerfilUser frmUsers = new FrmPerfilUser(datos[0], datos[1]);
+            frmUsers = new FrmPerfilUser(datos[0], datos[1]);
             frmUsers.ShowDialog();
         }
 
@@ -236,11 +308,19 @@ namespace KamsWf
 
         }
 
+<<<<<<< HEAD
         //private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    //abrir FrmConfig
         //    //abrirConfig();
         //}
+=======
+        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //abrir FrmConfig
+            //abrirConfig();
+        }
+>>>>>>> origin/master
 
         private void desactivarKAMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -303,8 +383,55 @@ namespace KamsWf
             }            
         }
 
-        public void abrirConfig()
+        public void abrirAccesosDirectos()
         {
+            FrmAccesosDirectos fAccDirec = new FrmAccesosDirectos();
+            fAccDirec.ShowDialog();
+        }
+
+        public void borrarControles()
+        {
+            int i = 0;
+
+            while (this.Controls.Count != 0)
+            {
+                if(this.Controls[i] is PictureBox || this.Controls[i] is Label)
+                {
+                    this.Controls.RemoveAt(i);
+                }
+            }
+        }
+
+        private void cambiarCursor(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void cursorDefault(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btEliminarPerfil_click(object sender, EventArgs e)
+        {
+            frmEliminarUser = new FrmEliminarUser();
+            frmEliminarUser.ShowDialog();
+        }
+
+        private void btAñadirPerfil_click(object sender, EventArgs e)
+        {
+            frmUsers = new FrmPerfilUser();
+            frmUsers.ShowDialog();
+        }
+
+        private void btAñadirModulo_click(object sender, EventArgs e)
+        {
+            Process.Start("www.google.es");
+        }
+
+        private void btEliminarModelo_click(object sender, EventArgs e)
+        {
+<<<<<<< HEAD
             if (!frmIsOpen("FrmConfig"))
             {                
                 
@@ -354,6 +481,9 @@ namespace KamsWf
             }
 
             return isOpen;
+=======
+            throw new NotImplementedException();
+>>>>>>> origin/master
         }
     }
 }
