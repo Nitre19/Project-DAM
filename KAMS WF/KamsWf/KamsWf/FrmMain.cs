@@ -21,6 +21,7 @@ namespace KamsWf
         ClMouse.PUNT posActu = new ClMouse.PUNT();
         Screen pantalla = Screen.PrimaryScreen;
         ClControladorUser controladorUser = new ClControladorUser(Application.StartupPath);
+        FrmConfig fConfig = new FrmConfig();
         private int anchoMax;
         public FrmMain()
         {
@@ -41,14 +42,31 @@ namespace KamsWf
             tmPosMouse.Tick += openPanel;
             tmMirarPosMouse.Tick += compararPosMouse;
             tmDesplegar.Tick += desplegarForm;
+            tmMouseLeave.Tick += minimizarForm;
             tmMirarPosMouse.Start();
-            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+        }
+
+        private void minimizarForm(object sender, EventArgs e)
+        {
+            ClMouse.PUNT posMouse = new ClMouse.PUNT();
+            ClMouse.GetCursorPos(ref posMouse);
+            if (posMouse.Y > 200 && (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal) )
+            {
+                if (!frmIsOpen("FrmConfig") && !frmIsOpen("FrmFav"))
+                {
+                    tmDesplegar.Stop();
+                    tmMirarPosMouse.Start();
+                    Height = 0;
+                    this.WindowState = FormWindowState.Minimized;
+                }                
+            }
         }
 
         private void desplegarForm(object sender, EventArgs e)
         {
             Visible = true;
-            Height += 5;
+            Height += 20;
             Refresh();
         }
 
@@ -56,7 +74,7 @@ namespace KamsWf
         {
             if (ClMouse.GetCursorPos(ref posActu))
             {
-                if (posActu.Y == 0)
+                if (posActu.Y <= 5)
                 {
                     tmPosMouse.Start();
                 }
@@ -85,7 +103,7 @@ namespace KamsWf
         private void openPanel(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-
+            
             //anchoMax = this.Bounds.Width;
             this.WindowState = FormWindowState.Normal;
             this.Location = new Point(0, 0);
@@ -95,7 +113,7 @@ namespace KamsWf
             //Visible = false;
             Refresh();
             ClMouse.GetCursorPos(ref posActu);
-            if (posActu.Y <= 0)
+            if (posActu.Y <= 5)
             {
                 if (posActu.X >= 0 && posActu.X <= this.Bounds.Width / 2)
                 {
@@ -125,7 +143,7 @@ namespace KamsWf
                 {
                     if (posActu.X >= pantalla.Bounds.Width - 5)
                     {
-                        abrirConfig();
+                        //abrirConfig();
                     }
                 }                
             }
@@ -134,6 +152,7 @@ namespace KamsWf
 
         private void abrirModulos()
         {
+            limpiarControls();
             int i = 0;
             List<String> archivosEncontrados = new List<string>();
             archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\marc\\Desktop\\testSprint2\\modulos");
@@ -167,6 +186,7 @@ namespace KamsWf
 
         private void abrirPerfiles()
         {
+            limpiarControls();
             int i = 0;
             controladorUser.cargarXML();
             foreach (XmlNode node in controladorUser.xDoc.DocumentElement.ChildNodes)
@@ -174,7 +194,7 @@ namespace KamsWf
                 PictureBox pbModulo = new PictureBox();
                 Label lblModulo = new Label();
                 pbModulo.Tag = node.ChildNodes[0].InnerText + ";" + node.ChildNodes[1].InnerText;
-                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 12, FontStyle.Bold);
                 pbModulo.Size = new Size(100, 100);
                 lblModulo.Size = new Size(100, 40);
                 pbModulo.Image = new Bitmap(node.ChildNodes[1].InnerText);
@@ -216,11 +236,11 @@ namespace KamsWf
 
         }
 
-        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //abrir FrmConfig
-            abrirConfig();
-        }
+        //private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    //abrir FrmConfig
+        //    //abrirConfig();
+        //}
 
         private void desactivarKAMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -285,8 +305,55 @@ namespace KamsWf
 
         public void abrirConfig()
         {
-            FrmConfig fConfig = new FrmConfig();
-            fConfig.ShowDialog();
+            if (!frmIsOpen("FrmConfig"))
+            {                
+                
+                fConfig.ShowDialog();
+            }
+        }
+
+        public void limpiarControls()
+        {
+            Boolean eliminar;
+            Console.WriteLine("-------Eliminando-------");
+            var controles = this.Controls;       
+            foreach (Control c in controles)
+            {
+                eliminar = false;
+                if (typeof(Label) == c.GetType())
+                {
+                    eliminar = true;
+                }
+                if (typeof(PictureBox) == c.GetType())
+                {
+                    eliminar = true;                    
+                }
+                if (eliminar)
+                {
+                    Console.WriteLine(c.GetType() + "Eliminado");
+                    this.Controls.Remove(c);
+                }
+                Visible = false;
+                Refresh();
+                Visible = true;
+            }
+            Console.WriteLine("-------Todo Eliminado-------");
+        }
+
+        public Boolean frmIsOpen(String psName)
+        {
+            Boolean isOpen = false;
+            FormCollection fc = Application.OpenForms;
+
+            foreach (Form frm in fc)
+            {
+                if (frm.Name == psName)
+                {
+                    isOpen = true;
+                }
+            }
+
+            return isOpen;
         }
     }
 }

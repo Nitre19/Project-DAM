@@ -38,7 +38,6 @@
             this.gestionarModulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.acercaDeKAMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -46,6 +45,7 @@
             this.tmPosMouse = new System.Windows.Forms.Timer(this.components);
             this.tmMirarPosMouse = new System.Windows.Forms.Timer(this.components);
             this.tmDesplegar = new System.Windows.Forms.Timer(this.components);
+            this.tmMouseLeave = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,13 +63,12 @@
             this.desactivarKAMSToolStripMenuItem,
             this.toolStripSeparator1,
             this.gestionarModulosToolStripMenuItem,
-            this.configuraciónToolStripMenuItem,
             this.toolStripSeparator2,
             this.acercaDeKAMSToolStripMenuItem,
             this.toolStripSeparator3,
             this.salirToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 154);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 132);
             // 
             // ActivarToolStripMenuItem
             // 
@@ -115,13 +114,6 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
-            // configuraciónToolStripMenuItem
-            // 
-            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.configuraciónToolStripMenuItem.Text = "Configuración";
-            this.configuraciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónToolStripMenuItem_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -156,7 +148,12 @@
             // 
             // tmDesplegar
             // 
-            this.tmDesplegar.Interval = 5;
+            this.tmDesplegar.Interval = 1;
+            // 
+            // tmMouseLeave
+            // 
+            this.tmMouseLeave.Enabled = true;
+            this.tmMouseLeave.Interval = 50;
             // 
             // FrmMain
             // 
@@ -189,7 +186,6 @@
         private System.Windows.Forms.ToolStripMenuItem desactivarKAMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem gestionarModulosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem acercaDeKAMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -199,6 +195,7 @@
         private System.Windows.Forms.ToolStripMenuItem descargarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Timer tmDesplegar;
+        private System.Windows.Forms.Timer tmMouseLeave;
     }
 }
 

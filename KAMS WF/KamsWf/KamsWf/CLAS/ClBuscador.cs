@@ -18,7 +18,7 @@ namespace KamsWf.CLAS
 
             foreach (var file in directori.GetFiles("*.exe"))
             {
-                Console.WriteLine(file.Name);
+                //Console.WriteLine(file.Name);
                 array.Add(file.Name);
             }
 

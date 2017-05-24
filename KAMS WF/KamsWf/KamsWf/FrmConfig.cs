@@ -21,5 +21,11 @@ namespace KamsWf
         {
             cmbIdioma.SelectedIndex = 0;
         }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            //Guardar datos en XML
+            this.Close();
+        }
     }
 }

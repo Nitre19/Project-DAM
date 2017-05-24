@@ -123,6 +123,7 @@
             this.btGuardar.TabIndex = 8;
             this.btGuardar.Text = "Guardar";
             this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
             // 
             // FrmConfig
             // 
