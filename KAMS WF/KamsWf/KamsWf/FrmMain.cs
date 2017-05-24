@@ -24,6 +24,7 @@ namespace KamsWf
         FrmEliminarUser frmEliminarUser;
         ClControladorUser controladorUser = new ClControladorUser(Application.StartupPath);
         FrmConfig fConfig = new FrmConfig();
+        FrmAccesosDirectos fAccDirec = new FrmAccesosDirectos();
         private int anchoMax;
         public FrmMain()
         {
@@ -55,7 +56,7 @@ namespace KamsWf
             ClMouse.GetCursorPos(ref posMouse);
             if (posMouse.Y > 200 && (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal) )
             {
-                if (!frmIsOpen("FrmConfig") && !frmIsOpen("FrmFav"))
+                if (!frmIsOpen("FrmPerfilUser") && !frmIsOpen("FrmAccesosDirectos") && !frmIsOpen("FrmEliminarUser"))
                 {
                     tmDesplegar.Stop();
                     tmMirarPosMouse.Start();
@@ -145,11 +146,7 @@ namespace KamsWf
                 {
                     if (posActu.X <= 5)
                     {
-<<<<<<< HEAD
-                        //abrirConfig();
-=======
                         abrirAccesosDirectos();
->>>>>>> origin/master
                     }
                 }                
             }
@@ -158,21 +155,16 @@ namespace KamsWf
 
         private void abrirModulos()
         {
-<<<<<<< HEAD
-            limpiarControls();
-=======
             borrarControles();
-
->>>>>>> origin/master
             int i = 0;
             List<String> archivosEncontrados = new List<string>();
-            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\JuanJosé\\Documents\\GitHub\\Project-DAM\\KAMS WF\\KamsWf\\modulos");
+            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\marc\\Desktop\\testSprint2\\modulos");
             foreach (var item in archivosEncontrados)
             {
                 PictureBox pbModulo = new PictureBox();
                 pbModulo.Tag = item;
                 pbModulo.Size = new Size(100, 100);
-                pbModulo.Image = new Bitmap("C:\\Users\\JuanJosé\\Documents\\GitHub\\Project-DAM\\KAMS WF\\KamsWf\\imgModulos\\" + item.Replace(".exe", ".png"));
+                pbModulo.Image = new Bitmap("C:\\Users\\marc\\Desktop\\testSprint2\\img\\imgModulos\\" + item.Replace(".exe", ".png"));
                 pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
                 pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbModulo.Click += PbModulo_Click;
@@ -223,23 +215,13 @@ namespace KamsWf
 
         private void abrirPerfiles()
         {
-<<<<<<< HEAD
-            limpiarControls();
-=======
             borrarControles();
-
-
->>>>>>> origin/master
             int i = 0;
             controladorUser.cargarXML();
             foreach (XmlNode node in controladorUser.xDoc.DocumentElement.ChildNodes)
             {
                 PictureBox pbModulo = new PictureBox();
-                pbModulo.Tag = node.ChildNodes[0].InnerText + ";" + node.ChildNodes[1].InnerText;
-<<<<<<< HEAD
-                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 12, FontStyle.Bold);
-=======
->>>>>>> origin/master
+                pbModulo.Tag = node.ChildNodes[0].InnerText + ";" + node.ChildNodes[1].InnerText;                
                 pbModulo.Size = new Size(100, 100);
                 pbModulo.Image = new Bitmap(node.ChildNodes[1].InnerText);
                 pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
@@ -249,7 +231,7 @@ namespace KamsWf
                 pbModulo.MouseLeave += cursorDefault;
 
                 Label lblModulo = new Label();
-                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 24, FontStyle.Bold);
+                lblModulo.Font = new Font(lblModulo.Font.FontFamily, 12, FontStyle.Bold);
                 lblModulo.Size = new Size(100, 40);
                 lblModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20 + pbModulo.Height);
                 lblModulo.Text = node.ChildNodes[0].InnerText;
@@ -307,20 +289,6 @@ namespace KamsWf
             
 
         }
-
-<<<<<<< HEAD
-        //private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    //abrir FrmConfig
-        //    //abrirConfig();
-        //}
-=======
-        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //abrir FrmConfig
-            //abrirConfig();
-        }
->>>>>>> origin/master
 
         private void desactivarKAMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -385,8 +353,11 @@ namespace KamsWf
 
         public void abrirAccesosDirectos()
         {
-            FrmAccesosDirectos fAccDirec = new FrmAccesosDirectos();
-            fAccDirec.ShowDialog();
+            if (!frmIsOpen("FrmAccesosDirectos"))
+            {
+                fAccDirec.ShowDialog();
+            }
+                          
         }
 
         public void borrarControles()
@@ -431,41 +402,39 @@ namespace KamsWf
 
         private void btEliminarModelo_click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             if (!frmIsOpen("FrmConfig"))
-            {                
-                
+            {                                
                 fConfig.ShowDialog();
             }
         }
 
-        public void limpiarControls()
-        {
-            Boolean eliminar;
-            Console.WriteLine("-------Eliminando-------");
-            var controles = this.Controls;       
-            foreach (Control c in controles)
-            {
-                eliminar = false;
-                if (typeof(Label) == c.GetType())
-                {
-                    eliminar = true;
-                }
-                if (typeof(PictureBox) == c.GetType())
-                {
-                    eliminar = true;                    
-                }
-                if (eliminar)
-                {
-                    Console.WriteLine(c.GetType() + "Eliminado");
-                    this.Controls.Remove(c);
-                }
-                Visible = false;
-                Refresh();
-                Visible = true;
-            }
-            Console.WriteLine("-------Todo Eliminado-------");
-        }
+        //public void limpiarControls()
+        //{
+        //    Boolean eliminar;
+        //    Console.WriteLine("-------Eliminando-------");
+        //    var controles = this.Controls;       
+        //    foreach (Control c in controles)
+        //    {
+        //        eliminar = false;
+        //        if (typeof(Label) == c.GetType())
+        //        {
+        //            eliminar = true;
+        //        }
+        //        if (typeof(PictureBox) == c.GetType())
+        //        {
+        //            eliminar = true;                    
+        //        }
+        //        if (eliminar)
+        //        {
+        //            Console.WriteLine(c.GetType() + "Eliminado");
+        //            this.Controls.Remove(c);
+        //        }
+        //        Visible = false;
+        //        Refresh();
+        //        Visible = true;
+        //    }
+        //    Console.WriteLine("-------Todo Eliminado-------");
+        //}
 
         public Boolean frmIsOpen(String psName)
         {
@@ -481,9 +450,6 @@ namespace KamsWf
             }
 
             return isOpen;
-=======
-            throw new NotImplementedException();
->>>>>>> origin/master
         }
     }
 }

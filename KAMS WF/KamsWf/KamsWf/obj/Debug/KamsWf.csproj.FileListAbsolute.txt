@@ -43,3 +43,5 @@ C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\Ka
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmEliminarUser.resources
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmAccesosDirectos.resources
 >>>>>>> origin/master
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmAccesosDirectos.resources
+C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmEliminarUser.resources
