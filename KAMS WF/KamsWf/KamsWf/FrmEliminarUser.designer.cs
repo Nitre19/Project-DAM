@@ -1,0 +1,104 @@
+﻿namespace KamsWf
+{
+    partial class FrmEliminarUser
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lbUsuaris = new System.Windows.Forms.ListBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lbUsuaris
+            // 
+            this.lbUsuaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuaris.FormattingEnabled = true;
+            this.lbUsuaris.ItemHeight = 20;
+            this.lbUsuaris.Location = new System.Drawing.Point(12, 20);
+            this.lbUsuaris.Name = "lbUsuaris";
+            this.lbUsuaris.Size = new System.Drawing.Size(257, 324);
+            this.lbUsuaris.TabIndex = 0;
+            this.lbUsuaris.SelectedIndexChanged += new System.EventHandler(this.lbUsuaris_SelectedIndexChanged);
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImagen.Location = new System.Drawing.Point(334, 30);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(149, 159);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 1;
+            this.pbImagen.TabStop = false;
+            // 
+            // btEliminar
+            // 
+            this.btEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEliminar.Location = new System.Drawing.Point(432, 311);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(94, 33);
+            this.btEliminar.TabIndex = 3;
+            this.btEliminar.Text = "Eliminar";
+            this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(334, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(148, 26);
+            this.textBox1.TabIndex = 4;
+            // 
+            // FrmEliminarUser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(538, 358);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btEliminar);
+            this.Controls.Add(this.pbImagen);
+            this.Controls.Add(this.lbUsuaris);
+            this.Name = "FrmEliminarUser";
+            this.Text = "FrmEliminarUser";
+            this.Load += new System.EventHandler(this.Form3_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ListBox lbUsuaris;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.Button btEliminar;
+        private System.Windows.Forms.TextBox textBox1;
+    }
+}

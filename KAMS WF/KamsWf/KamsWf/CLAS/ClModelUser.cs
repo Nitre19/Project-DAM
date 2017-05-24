@@ -44,7 +44,7 @@ namespace KamsWf.CLAS
 
             xNodeArrel = xmlDoc.CreateElement("Users");
             xmlDoc.AppendChild(xNodeArrel);
-            
+
             // afegim un comentari
             xComentari = xmlDoc.CreateComment("Fi de la llista");
             xmlDoc.InsertAfter(xComentari, xNodeArrel);
@@ -54,18 +54,18 @@ namespace KamsWf.CLAS
         }
 
         //funcion que carga el xml que le pasamos por parametros en el xml de la clase
-        public void cargarXML(String nomFitxer, XmlDocument xml)
+        public void cargarXML(String nomFitxer)
         {
-            xml.Load(startUpPath + ruta + nomFitxer);
+            xDoc.Load(startUpPath + ruta + nomFitxer);
         }
 
         public bool crearUser(String nom, String rutaFoto, XmlDocument xmlDoc, String nomFitxer)
         {
 
-            bool correcte=false;            //variable que nos permite gestionar si se a creado correctamente o no
+            bool correcte = false;            //variable que nos permite gestionar si se a creado correctamente o no
             XmlNode xUser;
             XmlElement xNom, xFoto;
-            
+
             //comprobamos si ya existe el usuario (nom= PK)
             if (!comprobarUsers(nom, nomFitxer))
             {
@@ -97,7 +97,7 @@ namespace KamsWf.CLAS
             bool existe = false;
             String nomComparar, nomXMLComparar;
 
-            cargarXML(nomFitxer, xDoc);
+            cargarXML(nomFitxer);
 
             //recuperamos todos los nodos dentro de USERS
             foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
@@ -127,27 +127,29 @@ namespace KamsWf.CLAS
             {
                 //creamos el fichero en el que guardaremos todos los usuarios menos el que queremos eliminar
                 escriuXML(xml, "xmlUsers2.xml");
-                cargarXML("xmlUsers.xml", xDoc);
+                cargarXML("xmlUsers.xml");
 
                 foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
                 {
 
-                    if (!(xnode.ChildNodes[0].InnerText.ToUpper().Equals(nomUser)))
+                    if (!(xnode.ChildNodes[0].InnerText.ToUpper().Equals(nomUser.ToUpper())))
                     {
                         //creamos usuario en el fichero 2
                         crearUser(xnode.ChildNodes[0].InnerText, xnode.ChildNodes[1].InnerText, xml, "xmlUsers2.xml");
-                    }else
+                    }
+                    else
                     {
                         correcte = true;
                     }
-
-                    n++;
                 }
                 //eliminamos el fichero 1
                 File.Delete(startUpPath + ruta + "xmlUsers.xml");
                 //le cambiamos el nombre al fichero 2 --> pasa a fichero 1
                 File.Move(startUpPath + ruta + "xmlUsers2.xml", startUpPath + ruta + "xmlUsers.xml");
-            }catch
+
+                guardarXML(xml, "xmlUsers.xml");
+            }
+            catch
             {
                 correcte = false;
             }
@@ -163,7 +165,7 @@ namespace KamsWf.CLAS
 
             //creamos el fichero en el que guardaremos todos los usuarios menos el que queremos eliminar
             escriuXML(xml, "xmlUsers2.xml");
-            cargarXML("xmlUsers.xml", xDoc);
+            cargarXML("xmlUsers.xml");
 
             foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
             {
@@ -199,6 +201,20 @@ namespace KamsWf.CLAS
             File.Move(startUpPath + ruta + "xmlUsers2.xml", startUpPath + ruta + "xmlUsers.xml");
 
             guardarXML(xml, "xmlUsers.xml");
+        }
+        //Metodo para encontrar la cadena de la foto del usuario
+        public String findFoto(String nomUser)
+        {
+            String foto = "";
+
+            foreach (XmlNode xnode in xDoc.DocumentElement.ChildNodes)
+            {
+                if (xnode.ChildNodes[0].InnerText.Equals(nomUser))
+                {
+                    foto = xnode.ChildNodes[1].InnerText;
+                }
+            }
+            return foto;
         }
 
         //guardamos el xml que le pasamos con el nombre que le pasamos

@@ -37,3 +37,5 @@ C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.csproj.GenerateResource.Cache
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.exe
 C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmPerfilUser.resources
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmEliminarUser.resources
+C:\Users\JuanJosé\Documents\GitHub\Project-DAM\KAMS WF\KamsWf\KamsWf\obj\Debug\KamsWf.FrmAccesosDirectos.resources
