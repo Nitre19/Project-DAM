@@ -23,7 +23,7 @@ namespace KamsWf
         FrmPerfilUser frmUsers;
         FrmEliminarUser frmEliminarUser;
         ClControladorUser controladorUser = new ClControladorUser(Application.StartupPath);
-        FrmConfig fConfig = new FrmConfig();
+        FrmEliminarModulo fEliminarModulo = new FrmEliminarModulo();
         FrmAccesosDirectos fAccDirec = new FrmAccesosDirectos();
         private int anchoMax;
         public FrmMain()
@@ -47,7 +47,7 @@ namespace KamsWf
             tmDesplegar.Tick += desplegarForm;
             tmMouseLeave.Tick += minimizarForm;
             tmMirarPosMouse.Start();
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void minimizarForm(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace KamsWf
             ClMouse.GetCursorPos(ref posMouse);
             if (posMouse.Y > 200 && (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal) )
             {
-                if (!frmIsOpen("FrmPerfilUser") && !frmIsOpen("FrmAccesosDirectos") && !frmIsOpen("FrmEliminarUser"))
+                if (!frmIsOpen("FrmPerfilUser") && !frmIsOpen("FrmAccesosDirectos") && !frmIsOpen("FrmEliminarUser") && !frmIsOpen("FrmEliminarModulo"))
                 {
                     tmDesplegar.Stop();
                     tmMirarPosMouse.Start();
@@ -158,13 +158,13 @@ namespace KamsWf
             borrarControles();
             int i = 0;
             List<String> archivosEncontrados = new List<string>();
-            archivosEncontrados = ClBuscador.RecuperaEXES("C:\\Users\\marc\\Desktop\\testSprint2\\modulos");
+            archivosEncontrados = ClBuscador.RecuperaEXES(Application.StartupPath+"\\modulos");
             foreach (var item in archivosEncontrados)
             {
                 PictureBox pbModulo = new PictureBox();
                 pbModulo.Tag = item;
                 pbModulo.Size = new Size(100, 100);
-                pbModulo.Image = new Bitmap("C:\\Users\\marc\\Desktop\\testSprint2\\img\\imgModulos\\" + item.Replace(".exe", ".png"));
+                pbModulo.Image = new Bitmap(Application.StartupPath+"\\img\\imgModulos\\" + item.Replace(".exe", ".png"));
                 pbModulo.Location = new Point((20 + pbModulo.Width) * i + 20, 20);
                 pbModulo.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbModulo.Click += PbModulo_Click;
@@ -210,7 +210,7 @@ namespace KamsWf
         
         private void PbModulo_Click(object sender, EventArgs e)
         {
-            Process.Start("C:\\Users\\marc\\Desktop\\testSprint2\\modulos\\" + ((PictureBox)sender).Tag);
+            Process.Start(Application.StartupPath+"\\modulos\\" + ((PictureBox)sender).Tag);
         }
 
         private void abrirPerfiles()
@@ -303,7 +303,7 @@ namespace KamsWf
             KamsActivo = true;
             desactivarKAMSToolStripMenuItem.Checked = false;
             ActivarToolStripMenuItem.Checked = true;
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void descargarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -404,7 +404,7 @@ namespace KamsWf
         {
             if (!frmIsOpen("FrmConfig"))
             {                                
-                fConfig.ShowDialog();
+                fEliminarModulo.ShowDialog();
             }
         }
 

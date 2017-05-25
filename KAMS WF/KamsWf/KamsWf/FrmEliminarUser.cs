@@ -26,7 +26,7 @@ namespace KamsWf
             cargarListBox();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btEliminar_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("¿Seguro que quieres borrar este usuario?\nNombre: " + textBox1.Text, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -38,6 +38,7 @@ namespace KamsWf
                     cargarListBox();
                 }
             }
+            this.Close();
         }
 
         private void lbUsuaris_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace KamsWf
             {
                 lbUsuaris.Items.Add(xnode.ChildNodes[0].InnerText);
             }
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

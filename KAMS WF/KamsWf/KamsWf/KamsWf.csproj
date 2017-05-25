@@ -58,6 +58,12 @@
     <Compile Include="FrmAccesosDirectos.Designer.cs">
       <DependentUpon>FrmAccesosDirectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEliminarModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarModulo.Designer.cs">
+      <DependentUpon>FrmEliminarModulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEliminarUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAccesosDirectos.resx">
       <DependentUpon>FrmAccesosDirectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarModulo.resx">
+      <DependentUpon>FrmEliminarModulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarUser.resx">
       <DependentUpon>FrmEliminarUser.cs</DependentUpon>

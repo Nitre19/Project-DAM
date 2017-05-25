@@ -1,6 +1,6 @@
 ﻿namespace KamsWf
 {
-    partial class FrmEliminarUser
+    partial class FrmEliminarModulo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,80 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUsuaris = new System.Windows.Forms.ListBox();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.tbNom = new System.Windows.Forms.TextBox();
             this.btEliminar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.lbModulos = new System.Windows.Forms.ListBox();
             this.btCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbUsuaris
+            // tbNom
             // 
-            this.lbUsuaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsuaris.FormattingEnabled = true;
-            this.lbUsuaris.ItemHeight = 20;
-            this.lbUsuaris.Location = new System.Drawing.Point(12, 20);
-            this.lbUsuaris.Name = "lbUsuaris";
-            this.lbUsuaris.Size = new System.Drawing.Size(257, 284);
-            this.lbUsuaris.TabIndex = 0;
-            this.lbUsuaris.SelectedIndexChanged += new System.EventHandler(this.lbUsuaris_SelectedIndexChanged);
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImagen.Location = new System.Drawing.Point(334, 30);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(149, 159);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImagen.TabIndex = 1;
-            this.pbImagen.TabStop = false;
+            this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNom.Location = new System.Drawing.Point(334, 202);
+            this.tbNom.Name = "tbNom";
+            this.tbNom.ReadOnly = true;
+            this.tbNom.Size = new System.Drawing.Size(148, 26);
+            this.tbNom.TabIndex = 8;
             // 
             // btEliminar
             // 
             this.btEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEliminar.Location = new System.Drawing.Point(435, 256);
+            this.btEliminar.Location = new System.Drawing.Point(419, 241);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(91, 48);
-            this.btEliminar.TabIndex = 3;
+            this.btEliminar.Size = new System.Drawing.Size(94, 42);
+            this.btEliminar.TabIndex = 7;
             this.btEliminar.Text = "Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
-            // textBox1
+            // pbImagen
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(334, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(148, 26);
-            this.textBox1.TabIndex = 4;
+            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImagen.Location = new System.Drawing.Point(334, 20);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(149, 159);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 6;
+            this.pbImagen.TabStop = false;
+            // 
+            // lbModulos
+            // 
+            this.lbModulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbModulos.FormattingEnabled = true;
+            this.lbModulos.ItemHeight = 20;
+            this.lbModulos.Location = new System.Drawing.Point(12, 10);
+            this.lbModulos.Name = "lbModulos";
+            this.lbModulos.Size = new System.Drawing.Size(257, 264);
+            this.lbModulos.TabIndex = 5;
+            this.lbModulos.SelectedIndexChanged += new System.EventHandler(this.lbModulos_SelectedIndexChanged);
             // 
             // btCancelar
             // 
             this.btCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancelar.Location = new System.Drawing.Point(318, 256);
+            this.btCancelar.Location = new System.Drawing.Point(319, 241);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(98, 48);
-            this.btCancelar.TabIndex = 5;
+            this.btCancelar.Size = new System.Drawing.Size(94, 42);
+            this.btCancelar.TabIndex = 9;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // FrmEliminarUser
+            // FrmEliminarModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 312);
+            this.ClientSize = new System.Drawing.Size(525, 288);
             this.Controls.Add(this.btCancelar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNom);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.pbImagen);
-            this.Controls.Add(this.lbUsuaris);
+            this.Controls.Add(this.lbModulos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmEliminarUser";
-            this.Text = "FrmEliminarUser";
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Name = "FrmEliminarModulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FrmEliminarModulo";
+            this.Load += new System.EventHandler(this.FrmEliminarModulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,10 +111,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lbUsuaris;
-        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.TextBox tbNom;
         private System.Windows.Forms.Button btEliminar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.ListBox lbModulos;
         private System.Windows.Forms.Button btCancelar;
     }
 }
