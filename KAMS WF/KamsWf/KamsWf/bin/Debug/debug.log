@@ -76,3 +76,7 @@
 [0524/111635.293:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
 [0524/111635.546:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
 [0524/111636.158:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
+[0524/125522.401:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0524/125523.696:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files (x86)\Google\Chrome\settings.dat: Acceso denegado. (0x5)
+[0524/125523.865:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0524/125524.300:ERROR:crashpad_win.cc(223)] Crashpad handler failed to start, crash reporting disabled
