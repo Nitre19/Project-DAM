@@ -303,7 +303,11 @@ namespace KamsWf
             KamsActivo = true;
             desactivarKAMSToolStripMenuItem.Checked = false;
             ActivarToolStripMenuItem.Checked = true;
+<<<<<<< HEAD
             //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+=======
+            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+>>>>>>> origin/master
         }
 
         private void descargarToolStripMenuItem_Click(object sender, EventArgs e)
