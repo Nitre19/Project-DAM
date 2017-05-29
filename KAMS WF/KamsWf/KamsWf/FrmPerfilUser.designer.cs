@@ -63,6 +63,7 @@
             // 
             // btHacerFoto
             // 
+            this.btHacerFoto.Enabled = false;
             this.btHacerFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btHacerFoto.Location = new System.Drawing.Point(357, 139);
             this.btHacerFoto.Name = "btHacerFoto";

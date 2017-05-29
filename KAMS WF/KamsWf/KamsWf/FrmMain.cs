@@ -47,7 +47,7 @@ namespace KamsWf
             tmDesplegar.Tick += desplegarForm;
             tmMouseLeave.Tick += minimizarForm;
             tmMirarPosMouse.Start();
-            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+            encenderProcess(Application.StartupPath + "\\KinectV2MouseControl.exe", "KinectV2MouseControl");
         }
 
         private void minimizarForm(object sender, EventArgs e)
@@ -210,6 +210,10 @@ namespace KamsWf
         
         private void PbModulo_Click(object sender, EventArgs e)
         {
+            if (((PictureBox)sender).Tag.ToString() == "Fronton.exe")
+            {
+                pararProcess("KinectV2MouseControl");
+            }
             Process.Start(Application.StartupPath+"\\modulos\\" + ((PictureBox)sender).Tag);
         }
 
@@ -285,7 +289,7 @@ namespace KamsWf
         private void acercaDeKAMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Abrir web 
-            Process.Start("http://www.google.com");
+            Process.Start("http://localhost/docs/examples/carousel/index.html");
             
 
         }
@@ -303,22 +307,24 @@ namespace KamsWf
             KamsActivo = true;
             desactivarKAMSToolStripMenuItem.Checked = false;
             ActivarToolStripMenuItem.Checked = true;
-<<<<<<< HEAD
-            //encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\bin\\Release\\KinectV2MouseControl.exe", "KinectV2MouseControl");
-=======
-            encenderProcess("C:\\Users\\marc\\Desktop\\Xavi DAM\\DAM2\\M13 - Projecte\\KinectV2MouseControl-master\\src\\KinectV2MouseControl\\bin\\Debug\\KinectV2MouseControl.exe", "KinectV2MouseControl");
->>>>>>> origin/master
+
+            encenderProcess(Application.StartupPath+"\\KinectV2MouseControl.exe", "KinectV2MouseControl");
+
         }
 
         private void descargarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Abrir web aparado descargas 
-            System.Diagnostics.Process.Start("http://www.google.com");
+            System.Diagnostics.Process.Start("http://localhost/docs/examples/carousel/downloads.html");
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //muestra uuna lista con las app's instaladas y te permite eliminarlas, es muy parecido 
+            if (!frmIsOpen("FrmEliminarModulo"))
+            {
+                fEliminarModulo.ShowDialog();
+            }
         }
         
         private void encenderProcess(String process, String processName)
@@ -401,7 +407,7 @@ namespace KamsWf
 
         private void btAñadirModulo_click(object sender, EventArgs e)
         {
-            Process.Start("www.google.es");
+            Process.Start("http://localhost/docs/examples/carousel/downloads.html");
         }
 
         private void btEliminarModelo_click(object sender, EventArgs e)

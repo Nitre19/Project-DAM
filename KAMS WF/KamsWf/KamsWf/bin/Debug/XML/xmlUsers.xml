@@ -2,16 +2,16 @@
 <!--Usuaris-->
 <Users>
   <user>
-    <nom>Juanjo88</nom>
-    <rutaFoto>C:\Users\marc\Pictures\Captura.PNG</rutaFoto>
+    <nom>Juanjo</nom>
+    <rutaFoto>C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\img\perfil\juanjo.jpg</rutaFoto>
   </user>
   <user>
-    <nom>jaume</nom>
-    <rutaFoto>C:\Users\marc\Pictures\Captura.PNG</rutaFoto>
+    <nom>Arnau</nom>
+    <rutaFoto>C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\img\perfil\arnau.JPG</rutaFoto>
   </user>
   <user>
     <nom>Xavi</nom>
-    <rutaFoto>C:\Users\marc\Pictures\Captura.PNG</rutaFoto>
+    <rutaFoto>C:\Users\marc\Desktop\Xavi DAM\DAM2\M13 - Projecte\Project-DAM\KAMS WF\KamsWf\KamsWf\bin\Debug\img\perfil\xavi.png</rutaFoto>
   </user>
 </Users>
 <!--Fi de la llista-->
