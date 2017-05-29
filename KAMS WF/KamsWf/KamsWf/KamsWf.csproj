@@ -191,6 +191,30 @@
   <ItemGroup>
     <None Include="Resources\salir.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2815%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2825%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2835%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2840%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2850%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2860%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoKams%2875%25%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoFullFinal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

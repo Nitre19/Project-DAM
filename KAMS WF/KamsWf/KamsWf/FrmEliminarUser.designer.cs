@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.lbUsuaris = new System.Windows.Forms.ListBox();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btEliminar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btCancelar = new System.Windows.Forms.Button();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lbUsuaris
             // 
+            this.lbUsuaris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
             this.lbUsuaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuaris.FormattingEnabled = true;
             this.lbUsuaris.ItemHeight = 20;
@@ -46,16 +47,6 @@
             this.lbUsuaris.Size = new System.Drawing.Size(257, 284);
             this.lbUsuaris.TabIndex = 0;
             this.lbUsuaris.SelectedIndexChanged += new System.EventHandler(this.lbUsuaris_SelectedIndexChanged);
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImagen.Location = new System.Drawing.Point(334, 30);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(149, 159);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImagen.TabIndex = 1;
-            this.pbImagen.TabStop = false;
             // 
             // btEliminar
             // 
@@ -70,6 +61,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(334, 212);
             this.textBox1.Name = "textBox1";
@@ -88,16 +80,29 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // pbImagen
+            // 
+            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImagen.Location = new System.Drawing.Point(334, 30);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(149, 159);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 1;
+            this.pbImagen.TabStop = false;
+            // 
             // FrmEliminarUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(538, 312);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.lbUsuaris);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEliminarUser";
             this.Text = "FrmEliminarUser";

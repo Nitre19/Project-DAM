@@ -330,7 +330,7 @@ namespace KamsWf
         private void encenderProcess(String process, String processName)
         {
             pararProcess(processName);
-            Process.Start(process);
+            //Process.Start(process);
         }
 
         private void pararProcess(String processName)

@@ -41,6 +41,7 @@
             this.pbAsk = new System.Windows.Forms.PictureBox();
             this.pbMarca = new System.Windows.Forms.PictureBox();
             this.pbFacebook = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNYT)).BeginInit();
@@ -54,12 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAsk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFacebook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pbSalir
             // 
+            this.pbSalir.BackColor = System.Drawing.Color.Transparent;
             this.pbSalir.Image = global::KamsWf.Properties.Resources.salir;
-            this.pbSalir.Location = new System.Drawing.Point(315, 487);
+            this.pbSalir.Location = new System.Drawing.Point(227, 491);
             this.pbSalir.Name = "pbSalir";
             this.pbSalir.Size = new System.Drawing.Size(125, 125);
             this.pbSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,6 +75,7 @@
             // 
             // pbPeriodico
             // 
+            this.pbPeriodico.BackColor = System.Drawing.Color.Transparent;
             this.pbPeriodico.Image = global::KamsWf.Properties.Resources.elPeriodico;
             this.pbPeriodico.Location = new System.Drawing.Point(227, 332);
             this.pbPeriodico.Name = "pbPeriodico";
@@ -86,6 +90,7 @@
             // 
             // pbNYT
             // 
+            this.pbNYT.BackColor = System.Drawing.Color.Transparent;
             this.pbNYT.Image = global::KamsWf.Properties.Resources.newYorkTimes;
             this.pbNYT.Location = new System.Drawing.Point(403, 332);
             this.pbNYT.Name = "pbNYT";
@@ -100,6 +105,7 @@
             // 
             // pbEducem
             // 
+            this.pbEducem.BackColor = System.Drawing.Color.Transparent;
             this.pbEducem.Image = global::KamsWf.Properties.Resources.educem;
             this.pbEducem.Location = new System.Drawing.Point(573, 332);
             this.pbEducem.Name = "pbEducem";
@@ -114,6 +120,7 @@
             // 
             // pbTwitter
             // 
+            this.pbTwitter.BackColor = System.Drawing.Color.Transparent;
             this.pbTwitter.Image = global::KamsWf.Properties.Resources.twitter1;
             this.pbTwitter.Location = new System.Drawing.Point(227, 24);
             this.pbTwitter.Name = "pbTwitter";
@@ -128,6 +135,7 @@
             // 
             // pbInstagram
             // 
+            this.pbInstagram.BackColor = System.Drawing.Color.Transparent;
             this.pbInstagram.Image = global::KamsWf.Properties.Resources.Instagram;
             this.pbInstagram.Location = new System.Drawing.Point(403, 24);
             this.pbInstagram.Name = "pbInstagram";
@@ -142,6 +150,7 @@
             // 
             // pbYoutube
             // 
+            this.pbYoutube.BackColor = System.Drawing.Color.Transparent;
             this.pbYoutube.Image = global::KamsWf.Properties.Resources.YouTube;
             this.pbYoutube.Location = new System.Drawing.Point(573, 24);
             this.pbYoutube.Name = "pbYoutube";
@@ -156,6 +165,7 @@
             // 
             // pbGoogle
             // 
+            this.pbGoogle.BackColor = System.Drawing.Color.Transparent;
             this.pbGoogle.Image = global::KamsWf.Properties.Resources.GOOGLE;
             this.pbGoogle.Location = new System.Drawing.Point(54, 177);
             this.pbGoogle.Name = "pbGoogle";
@@ -170,6 +180,7 @@
             // 
             // pbYahoo
             // 
+            this.pbYahoo.BackColor = System.Drawing.Color.Transparent;
             this.pbYahoo.Image = global::KamsWf.Properties.Resources.yahoo;
             this.pbYahoo.Location = new System.Drawing.Point(227, 177);
             this.pbYahoo.Name = "pbYahoo";
@@ -184,6 +195,7 @@
             // 
             // pbBing
             // 
+            this.pbBing.BackColor = System.Drawing.Color.Transparent;
             this.pbBing.Image = global::KamsWf.Properties.Resources.Bing;
             this.pbBing.Location = new System.Drawing.Point(403, 177);
             this.pbBing.Name = "pbBing";
@@ -198,6 +210,7 @@
             // 
             // pbAsk
             // 
+            this.pbAsk.BackColor = System.Drawing.Color.Transparent;
             this.pbAsk.Image = global::KamsWf.Properties.Resources.ask;
             this.pbAsk.Location = new System.Drawing.Point(573, 177);
             this.pbAsk.Name = "pbAsk";
@@ -212,6 +225,7 @@
             // 
             // pbMarca
             // 
+            this.pbMarca.BackColor = System.Drawing.Color.Transparent;
             this.pbMarca.Image = global::KamsWf.Properties.Resources.Marca;
             this.pbMarca.Location = new System.Drawing.Point(54, 332);
             this.pbMarca.Name = "pbMarca";
@@ -226,6 +240,7 @@
             // 
             // pbFacebook
             // 
+            this.pbFacebook.BackColor = System.Drawing.Color.Transparent;
             this.pbFacebook.Image = global::KamsWf.Properties.Resources.facebook1;
             this.pbFacebook.InitialImage = global::KamsWf.Properties.Resources.facebook1;
             this.pbFacebook.Location = new System.Drawing.Point(54, 24);
@@ -239,11 +254,27 @@
             this.pbFacebook.MouseLeave += new System.EventHandler(this.pbFacebook_MouseLeave);
             this.pbFacebook.MouseHover += new System.EventHandler(this.pbFacebook_MouseHover);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::KamsWf.Properties.Resources.logoFullFinal;
+            this.pictureBox1.Location = new System.Drawing.Point(403, 491);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "localhost/docs/examples/carousel/index.html";
+            // 
             // FrmAccesosDirectos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.BackgroundImage = global::KamsWf.Properties.Resources.logoKams_40__;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(763, 628);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbSalir);
             this.Controls.Add(this.pbPeriodico);
             this.Controls.Add(this.pbNYT);
@@ -257,6 +288,7 @@
             this.Controls.Add(this.pbAsk);
             this.Controls.Add(this.pbMarca);
             this.Controls.Add(this.pbFacebook);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAccesosDirectos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -274,6 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAsk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFacebook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -293,5 +326,6 @@
         private System.Windows.Forms.PictureBox pbNYT;
         private System.Windows.Forms.PictureBox pbPeriodico;
         private System.Windows.Forms.PictureBox pbSalir;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
